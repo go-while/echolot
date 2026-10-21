@@ -94,8 +94,12 @@ Only for `hostmail` (msmtp):
    docker compose -f compose.standalone.yml logs -f
    ```
    The `web` service publishes the results at `http://<host>:8080/yamn/`.
+   `nginx-yamn.conf` is mounted as a single file, so after editing it,
+   restart the service (`docker compose … restart web`). A reload alone
+   keeps reading the old file.
    To use a web server on the host instead, remove the service and serve
-   the volume's `results/` directory read-only.
+   the volume's `results/` directory read-only. Or keep the service on
+   `127.0.0.1:8080` and proxy `/yamn/` to it from the host's TLS server.
 3. **No open relay:** Postfix accepts mail only for `PINGER_DOMAIN` and
    relays only for localhost. Never add the Docker network to
    `mynetworks`. With Docker's port forwarding, outside clients can appear
