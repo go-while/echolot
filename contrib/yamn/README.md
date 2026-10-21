@@ -199,7 +199,7 @@ done
 ```
 
 This list is from October 2026; compare it with the other pingers' stats
-(below).
+(see [PINGERS.md](PINGERS.md)).
 - **Wait for replies:** they usually take a few minutes. Watch
   `tail -f pingd.log` for lines such as
   `Setting mix key for yamn@mixmin.net: …`.
@@ -234,7 +234,8 @@ Serve only `~/echolot/results/`, read-only. Never serve the home directory,
 
 Clients then use `https://<your-host>/yamn/pubring.mix` and `…/mlist2.txt`.
 
-- **With current yamn:** add your pinger to `urls.pingers` next to the others;
+- **With current yamn:** add your pinger to `urls.pingers` next to the
+  others ([PINGERS.md](PINGERS.md) lists the known ones);
   `key_quorum` makes clients use only keys that several pingers agree on.
 - **Announce it:** announce new pingers on alt.privacy.anon-server, as
   usual.
@@ -279,6 +280,16 @@ It ends with `PASS`, or shows where it failed together with the logs.
 - **Middle remailers:** a remailer with the `middle` capability can't deliver
   the ping itself. It forwards it through an exit of its own choice, so its
   stats include a second hop.
+  - Mixmaster middlemen could deliver pings directly if the pinger's
+    address was in their `dest.alw`, e.g. `/pinger.*\@/` (Zax, 2015-03-18,
+    `<slrnmgk2su.h7m.admin@snorky.mixmin.net>`). yamn has no such list.
+- **Key changes cost a few days of uptime:** when a remailer replaces its
+  key, Echolot pings the old and the new key. Once the remailer has deleted
+  the old key, the pings to it are lost, and they count against the
+  remailer. Its uptime can drop to about 50% until Echolot drops the old
+  key with its pings, 5 days after it last saw it (`expire_keys`). Zax saw
+  this with yamn and Mixmaster 4096-bit keys (2015-04-15,
+  `<slrnmis8at.m9.admin@snorky.mixmin.net>`).
 - **`remailer-stats`:** yamn doesn't answer it; Echolot logs nothing about
   that, and it's harmless.
 - **Commands:** `./pingd add`, `getkeyconf` etc. only queue a command and
@@ -313,3 +324,5 @@ It ends with `PASS`, or shows where it failed together with the logs.
 - yamn and the yamn patch for Echolot: Steve Crook (Zax); his copy of Echolot
   is at https://github.com/crooks/echolot.
 - The original yamn pinger tutorials: SEC3 (YAMN Help, sec3.net).
+- The yamn pages in `templates/`: rebuilt from the pages of Frell's yamn
+  pinger.
