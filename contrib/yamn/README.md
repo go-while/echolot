@@ -64,10 +64,10 @@ pinger+<token>@pinger.example.org  <-- replies, returning pings --+
               procmail postfix
   ```
   You also need a web server to publish the results.
-- **The yamn binary** in `/usr/local/bin/yamn`, built from either
-  https://github.com/crooks/yamn or https://github.com/go-while/yamn (a fork
-  with fixes). The self-test passes with both, and `yamn-ping` adapts to the
-  version it finds.
+- **The yamn binary** in `/usr/local/bin/yamn`, built from
+  https://github.com/crooks/yamn, the yamn the remailers run. Forks such as
+  https://github.com/go-while/yamn work too: the self-test passes with both,
+  and `yamn-ping` adapts to the version it finds.
   ```
   git clone https://github.com/crooks/yamn && cd yamn && go build
   install -m 755 yamn /usr/local/bin/yamn
@@ -254,7 +254,7 @@ It ends with `PASS`, or shows where it failed together with the logs.
 
 - **Expired keys:** Echolot keeps publishing and pinging a key until it
   hasn't seen it for 5 days (`expire_keys`), even after its expiry date.
-  Current yamn clients skip expired keys. That's also why the ping client has
+  yamn clients skip expired keys. That's also why the ping client has
   `use_expired: true`.
 - **Failed sends count as lost pings:** if yamn can't send a ping, Echolot
   still records it as sent. A local mail problem then looks like a bad

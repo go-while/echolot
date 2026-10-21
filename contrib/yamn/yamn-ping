@@ -5,16 +5,17 @@
 #     $mixmaster -m -S -l <nick>
 # with the message on stdin and MIXPATH set to its 'mixhome' directory,
 # where it has just written a pubring.mix holding that remailer's key.
-# Current yamn ignores MIXPATH (and no longer reads a yamn.yml from the
-# current directory), so point it at mixhome and its yamn.yml explicitly.
+# yamn doesn't use MIXPATH, so tell it where mixhome and its yamn.yml are.
 #
-# Options added for every ping:
-#   -c 1        one copy (older yamn sends 2 by default and ignores
-#               stats.num_copies)
+# Written for yamn as published at https://github.com/crooks/yamn; it also
+# works with forks such as go-while/yamn.  Options added for every ping:
+#   -c 1        one copy (yamn's -c defaults to 2 and overrides
+#               stats.num_copies in yamn.yml)
 #   --nodummy   a ping must not cause extra dummy traffic
-#   --keep-headers (only if this yamn has it) Echolot sends some pings with
-#               a From: header on purpose, to record whether remailers
-#               honour it; newer yamn would strip it.
+#   --keep-headers  only if this yamn has the option (go-while/yamn strips
+#               identifying headers by default).  Echolot sends some pings
+#               with a From: header on purpose, to record whether remailers
+#               honour it.  crooks/yamn never strips it.
 #
 # Set 'mixmaster' => '/path/to/yamn-ping' in pingd.conf.  If the yamn
 # binary isn't in PATH, set YAMN, e.g. in the systemd unit:

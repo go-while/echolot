@@ -18,7 +18,8 @@ remailer:
     address: pinger@pinger.example.org
 
 stats:
-    # One copy per ping; yamn's default of 2 would double the traffic
+    # One copy per ping.  yamn-ping also passes -c 1, because the -c
+    # option overrides this setting.
     num_copies: 1
     # Echolot keeps pinging a key until it expires it itself (5 days after
     # it was last seen), so allow keys past their expiry date.
