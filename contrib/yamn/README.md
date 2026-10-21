@@ -20,7 +20,8 @@ current Debian system.
     `<slrnqf7417.u39.admin@fleegle.mixmin.net>`.
   - Without it, Echolot never learns any yamn key.
 - **`contrib/yamn/yamn-ping`:** Echolot runs a "mixmaster" program to send a
-  ping. This wrapper runs yamn instead, with the right directory and options.
+  ping. This wrapper runs yamn instead, with the right directory and options:
+  one copy, no dummy messages, and the From line kept.
 - **Example configuration** for Echolot, the yamn client, mail delivery and
   systemd, a monitoring check, and a self-test that needs no mail server.
 
@@ -63,9 +64,12 @@ pinger+<token>@pinger.example.org  <-- replies, returning pings --+
               procmail postfix
   ```
   You also need a web server to publish the results.
-- **The yamn binary:** a current build in `/usr/local/bin/yamn`:
+- **The yamn binary** in `/usr/local/bin/yamn`, built from either
+  https://github.com/crooks/yamn or https://github.com/go-while/yamn (a fork
+  with fixes). The self-test passes with both, and `yamn-ping` adapts to the
+  version it finds.
   ```
-  git clone https://github.com/go-while/yamn && cd yamn && go build
+  git clone https://github.com/crooks/yamn && cd yamn && go build
   install -m 755 yamn /usr/local/bin/yamn
   ```
 
