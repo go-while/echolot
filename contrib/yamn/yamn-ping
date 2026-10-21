@@ -1,0 +1,19 @@
+#!/bin/sh
+# yamn-ping: run yamn the way Echolot runs Mixmaster.
+#
+# Echolot sends a ping by running its 'mixmaster' program as
+#     $mixmaster -m -S -l <nick>
+# with the message on stdin and MIXPATH set to its 'mixhome' directory,
+# where it has just written a pubring.mix holding that remailer's key.
+# Current yamn ignores MIXPATH (and no longer reads a yamn.yml from the
+# current directory), so point it at mixhome and its yamn.yml explicitly.
+# --nodummy: a ping must not cause extra dummy traffic.
+# --keep-headers: Echolot sends some pings with a From: header on purpose,
+# to record whether remailers honour it; don't strip it.
+#
+# Set 'mixmaster' => '/path/to/yamn-ping' in pingd.conf.  If the yamn
+# binary isn't in PATH, set YAMN, e.g. in the systemd unit:
+#     Environment=YAMN=/usr/local/bin/yamn
+: "${MIXPATH:?MIXPATH is not set (yamn-ping is meant to be run by Echolot)}"
+exec "${YAMN:-yamn}" --dir "$MIXPATH" --config "$MIXPATH/yamn.yml" \
+	--nodummy --keep-headers "$@"
