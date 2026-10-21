@@ -1,0 +1,73 @@
+Message-ID: <slrnndu486.e31.admin@fleegle.mixmin.net>
+Subject: Re: Pinger problem
+Date: Tue, 08 Mar 2016 17:51:02 +0000
+From: Zax <admin@mixmin.net>
+References: <50bfebcc99928b4fbfcbbf2ec07f4aed@remailer.cpunk.us> <slrnndtnhn.e31.admin@fleegle.mixmin.net> <nbn216$d00$1@dont-email.me>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!news.usenet.farm!..!..!not-for-mail
+Newsgroups: alt.privacy.anon-server
+Organization: Mixmin
+Injection-Date: Tue, 8 Mar 2016 17:51:02 -0000 (UTC)
+Injection-Info: news.mixmin.net; posting-host="8a108a19f9f97a6839357220376256d04457a645";
+User-Agent: slrn/pre1.0.3-6 (Linux)
+Lines: 58
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:280920
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+On Tue, 8 Mar 2016 12:30:18 -0500, SEC3 wrote in
+Message-Id: <nbn216$d00$1@dont-email.me>:
+
+>> You probably want to split out Mixmaster the client/remailer from
+>> Mixmaster required to send Echolot pings.
+>> 
+>> Have 2 user accounts: mix and echolot.  Install Mixmaster to:
+>> /home/mix/Mix
+>> /home/echolot/Mix
+>> 
+>> Put Echolot in:
+>> /home/echolot/echolot
+>> 
+>> Configure echolot to use its own copy of Mixmaster:
+>> 'mixmaster'        => '/home/echolot/Mix/mixmaster',
+>
+> Zax's advice is good if you are running both a remailer and a pinger
+> from the same box. But from what I've understood from our private
+> correspondence that is not what you intend to do. You are setting up a
+> pinger at allpingers.net and you are removing fuyant remailer from that box.
+>
+> In that case your setup can be much simpler:
+>
+> Have 1 user account echolot. Install Mixmaster (client only) to:
+> /home/echolot/Mix
+>
+> Put Echolot in:
+> /home/echolot/echolot
+>
+> Configure echolot to use its own copy of Mixmaster:
+> 'mixmaster'        => '/home/echolot/Mix/mixmaster',
+
+Yes, for a pinger-only setup, I think that's spot on.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2
+
+iQIcBAEBCAAGBQJW3xEGAAoJEC3jHKG+Pvqn+9sP/1S6TSDKLMv550YERizeYR42
+g8h/2YRXqV0Ydi16RSXRcTpalsp0RJZG0lWpKz1tKQPiHiOO3NOmZxgopOcKeZdD
+apn6jn6HNffUaTQUivP7U9cFLl9P4uB16QXzDhLwUGIixsMg/3d+PskGc+L2osLE
+7h6iAq3KUmgGYSe5QL3A32vB8jGZSMJIoFg40vZOAa5r51Zmnr6JwRe7FT3FtOVg
+G3tMlnAHoqKmdpH/0+pHs7GKA+x2IGIOFVkGX0yUPhldO70WBkNHIFrHwtUl4KU4
+Yj545sgVD8VSmxoItr1EN+VfLvF5boX/vozMWGGEvnIvfeWsHbS2YIOvGIlxbQYX
+8c2Q7Mzi4BrpzjYPmomgi401eJWbZHjYVCP7yBVAgmzFXYwYRcp1+5sBhOttLlxW
+10ueMMl+sWchLeYZ3nFdK9kg32emEQSXW880/6aKXVlk1PBpN18O3HRJ3OEHARtK
+cEnVPnRtCY1DDBkNVcGbp0eu+/uz+RFJTBhSbniHIm/UfmxF8GtO5nmv0yuHhK8O
+bNQ+PF3ua7nfWY3RF+Wfyg5hvTxqVw7GE8Uph5FrHpeB72b0mgt+BzG2RFgQsEHX
+qx468WPnix/AQlzrIEAcsJrH1gx3uq8QTHh4cndrpBXHPuPs5YpjJ7wB55pQN31R
+VX8Y1EvE0XmrJw9LhImZ
+=UFVe
+-----END PGP SIGNATURE-----
+
+-- 
+pub   1024D/228761E7 2003-06-04 Steven Crook <steve@mixmin.net>
+      Key fingerprint = 1CD9 95E1 E9CE 80D6 C885  B7EB B471 80D5 2287 61E7
+sub  4096R/BE3EFAA7  created: 2014-11-14  expires: 2016-11-13  usage: S

@@ -1,0 +1,36 @@
+> right.
+>
+> To the person who recently asked to see my pingd.conf file ... it's clearly
+> fuxored so don't use it!
+
+  I just needed it as a guide.  I think removing these:
+
+ # some of my personal settings here
+        'fromlines'                 => 0,
+        'processmail'               => 10*60,
+        'save_errormails'           => 1,
+        'pinger_interval'           => 10*60,
+        'ping_every_nth_time'       => 24,
+        'chainpinger_interval'      => 20*60,
+        'getkeyconf_interval'       => 10*60,
+        'getkeyconf_every_nth_time' => 24*60*60,
+        'metadata_backup_count'     => 2,
+        'random_garbage'            => '5160',
+        'commitprospectives'        => 24*60*60,
+
+will probably do it.
+
+
+  I think that these instructions are still good:
+
+In addition to the setup instructions in the README file in the 
+echolot
+tarball it is also necessary to
+1) manually create the file /etc/init.d/pingctl
+See the example file /tools/pingctl for a sample.
+2) sudo chmod +x /etc/init.d/pingctl
+3) sudo update-rc.d pingctl defaults
+NOTE: Doing #3 is crucial. Otherwise the Echolot script will run 
+only one
+time, but it won't run again after a reboot or a system crash.
+

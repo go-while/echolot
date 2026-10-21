@@ -1,0 +1,9 @@
+Article: alt.privacy.anon-server:305619 (archive.usenet.blueworldhosting.com)
+Message-ID: <slrnqf7417.u39.admin@fleegle.mixmin.net>
+Date: Sun, 02 Jun 2019 09:00:23 +0000
+From: Zax <admin@mixmin.net>
+Subject: Re: Cloaked Yamn Pinger is broken
+References: <5LlIE.23193$k34.14621@fx25.iad> <05ad2708a45a8f99441ed57253b6bbf2@remailer.privacy.at>
+Note: "Here's the patch I applied to my Echolot pinger code to support Yamn."
+Extracted verbatim (tabs preserved) from the article body; full article in articles/305619.txt.
+Patch header dates: original Conf.pm 2014-10-23, patched 2016-02-10.

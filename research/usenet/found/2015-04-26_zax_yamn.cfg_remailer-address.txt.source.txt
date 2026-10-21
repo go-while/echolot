@@ -1,0 +1,8 @@
+message-id: <slrnmjqqqe.m9.admin@snorky.mixmin.net>
+date: Sun, 26 Apr 2015 22:48:46 +0000
+from: Zax <admin@mixmin.net>
+subject: Re: Yamn: StartTLS: remote error: handshake failure
+newsgroups: alt.privacy.anon-server
+article-file: articles/apas2014/273733.txt
+lines: 22-48
+note: [Remailer] Address for sender domain checks

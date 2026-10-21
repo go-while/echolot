@@ -1,0 +1,41 @@
+
+I just noticed that the URLs listed for SEC3 Pinger needs some correction:
+
+
+Incorrect:
+
+[sec3]
+base        = http://sec3.net/echolot.html
+rlist       = http://sec3.net/rlist.txt
+mlist       = http://sec3.net/mlist.txt
+rlist2      = http://sec3.net/rlist2.txt
+mlist2      = http://sec3.net/mlist2.txt
+rlist_html  = http://sec3.net/rlist.html
+mlist_html  = http://sec3.net/mlist.html
+rlist2_html = http://sec3.net/rlist2.html
+mlist2_html = http://sec3.net/mlist2.html
+pgpring     = http://sec3.net/pgp-all.asc
+pgpring_rsa = http://sec3.net/pgp-rsa.asc
+mixring     = http://sec3.net/pubring.mix
+type2list   = http://sec3.net/type2.list
+
+Correct:
+
+[sec3]
+base        = http://sec3.net/echolot/
+rlist       = http://sec3.net/echolot/rlist.txt
+mlist       = http://sec3.net/echolot/mlist.txt
+rlist2      = http://sec3.net/echolot/rlist2.txt
+mlist2      = http://sec3.net/echolot/mlist2.txt
+rlist_html  = http://sec3.net/echolot/rlist.html
+mlist_html  = http://sec3.net/echolot/mlist.html
+rlist2_html = http://sec3.net/echolot/rlist2.html
+mlist2_html = http://sec3.net/echolot/mlist2.html
+pgpring     = http://sec3.net/echolot/pgp-all.asc
+pgpring_rsa = http://sec3.net/echolot/pgp-rsa.asc
+mixring     = http://sec3.net/echolot/pubring.mix
+type2list   = http://sec3.net/echolot/type2.list
+
+
+--SEC3 Pinger Operator
+

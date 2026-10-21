@@ -1,0 +1,8 @@
+message-id: <slrnmgtt71.h7m.admin@snorky.mixmin.net>
+date: Sun, 22 Mar 2015 16:59:13 +0000
+from: Zax <admin@mixmin.net>
+subject: Re: echolot pinger setup
+newsgroups: alt.privacy.anon-server
+article-file: articles/apas2014/273041.txt
+lines: 18-40
+note: Echolot needs its own client-only Mixmaster install as echolot user

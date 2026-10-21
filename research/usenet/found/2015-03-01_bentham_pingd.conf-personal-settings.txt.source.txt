@@ -1,0 +1,8 @@
+message-id: <c45b02ed73b4f0463dd94bc4346233bf@anemone.mooo.com>
+date: Sun, 01 Mar 2015 20:43:15 +0000
+from: Jeremy Bentham <nobody@anemone.mooo.com>
+subject: Re: fourohninesix lost remailers again
+newsgroups: alt.privacy.anon-server
+article-file: articles/apas2014/272652.txt
+lines: 44-79
+note: pingd.conf personal settings block from Bergman's (fourohninesix) pingd.conf, as quoted by Jeremy Bentham (inwtx); Bergman said these were 'fuxored'

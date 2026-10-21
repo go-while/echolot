@@ -1,0 +1,54 @@
+Message-ID: <slrnnm5m8c.1iv.admin@fleegle.mixmin.net>
+Subject: Re: When do remailers change out other remailer keys?
+Date: Thu, 16 Jun 2016 16:51:24 +0000
+From: Zax <admin@mixmin.net>
+References: <slrnnm5c2b.1iv.admin@fleegle.mixmin.net> <7273527927cc774a60fa4609a8d40f04@anon.holland.remailer.nl>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!news.usenet.farm!..!..!not-for-mail
+Newsgroups: alt.privacy.anon-server
+Organization: Mixmin
+Injection-Date: Thu, 16 Jun 2016 16:51:24 -0000 (UTC)
+Injection-Info: news.mixmin.net; posting-host="3c6585416d7ebf917c934738efeed135f4159c9d";
+User-Agent: slrn/pre1.0.3-10 (Linux)
+Lines: 39
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:283287
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+On Thu, 16 Jun 2016 16:57:53 +0100 (BST), Cornelis Tromp wrote in
+Message-Id: <7273527927cc774a60fa4609a8d40f04@anon.holland.remailer.nl>:
+
+>> Make the change in pingd.conf by adding a line:-
+>> 
+>> 'expire keys' => 2*24*60*60, # 2 days
+>> (Watch out for the comma!)
+>> 
+>> I'd suggest two days instead of one, just in case a remailer has a
+>> glitch and misses a remailer-key request.
+>
+>   Done.
+
+Should be interesting to see what happens.  :)
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2
+
+iQIcBAEBCAAGBQJXYtkMAAoJEC3jHKG+PvqncFgQALKvcoOqubfV9gzJ4gx/Mw0G
+MWhivLo71VHECTjVAEEyEL+QPzFc0ti6ehS/t91RUGhPAndOtCuJsMe6hOuFBqjM
+VWfdMdp6nJ5bHbN2vfWHydgxza9MDNYSwy3Oa8/OU9zm3fVrixTFT2BKnOYi3KUK
+6ige5De35Pgyyy/1i7jrmTUxCUCa2FCRaNKTeI5LYOdUL4IXZsmjnpEPUVJZxLne
+/LquixO0JmLvW7JT66FSiWBYH1gU9DbAANsnJHce0pYPZx2Z6sDVv5KB/vFgk12d
+MGlCgNtflL1Cc2q1RjYfo+GwQqC/1KOyWz2GTZbBYVLkYgPyEJH60cYLxGpPWGeL
+BDr4/8ZMk1Ric0MPr/h5IUzVDGHihx3HvEhZAsjj+kYsnwnCNNO7cktg5SNLsROm
+4yx01fSU9jtjduXcGl1bgV0pAjwEizDFb92JrEpvw/LXmOpgXhDbxI+FTKeDkF8c
+VsD6EJ1Z6PDSM96jtieG0MYNH97lHDxPtt9+SE1lVX/QVd49t4rCVCs2KlAIvwXC
+2I/cAenAQ9IXartMaqsWTxAtpLCeBJzaWF7SgKZNJfwbdverDZE0e2ejrjQGj0uG
+FzX/QyVPKhUI2ct7FmOb31HVPQUMSBAhxcip3P6mr+0n1/gVZ6tfKGfu7Um06BLI
+9UtOau5GDp01ird1UA4T
+=obWE
+-----END PGP SIGNATURE-----
+
+-- 
+pub   1024D/228761E7 2003-06-04 Steven Crook <steve@mixmin.net>
+      Key fingerprint = 1CD9 95E1 E9CE 80D6 C885  B7EB B471 80D5 2287 61E7
+sub  4096R/BE3EFAA7  created: 2014-11-14  expires: 2016-11-13  usage: S

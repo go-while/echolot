@@ -1,0 +1,84 @@
+Message-ID: <nbqckd$sma$1@news.mixmin.net>
+Subject: Re: Pinger problem
+Date: Wed, 09 Mar 2016 17:46:18 -0600
+From: Anonymous <anonymous@anonymous.com>
+References: <e1f44daf23ede5907671ac36392b3006@hoi-polloi.org> <3699120895e4d5d02dba5a40f732a05b@remailer.paranoici.org> <nbnpgu$hip$1@dont-email.me> <nbps17$v90$1@news.mixmin.net> <nbq1j8$u86$1@dont-email.me> <nbq4va$fid$1@news.mixmin.net> <nbq9hm$tfj$1@dont-email.me>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!news.usenet.farm!..!..!not-for-mail
+Newsgroups: alt.privacy.anon-server
+Organization: Anonymous
+Reply-To: anonymous@anonymous.com
+Mime-Version: 1.0
+Content-Type: text/plain; charset="iso-8859-15"; format=flowed
+Content-Transfer-Encoding: 8bit
+Injection-Date: Wed, 9 Mar 2016 23:46:21 -0000 (UTC)
+Injection-Info: news.mixmin.net; posting-host="f670ac51c41a61915974e06cb3a3c7fb0c709b00";
+X-Newsreader: MesNews/1.08.03.00-gb
+Lines: 66
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:280999
+
+SEC3 has brought this to us :
+> On 03/09/2016 04:35 PM, Anonymous wrote:
+>>> Nginx is probably where your problem lies. But just to rule out
+>>> permission problems I would suggest this.
+>>> 
+>>> You have Echolot running under user mix. Therefore ensure you
+>>> have done these 3 things as user mix:
+>>> 
+>>> 1. Create Echolot's Maildir
+>>> mkdir /home/mix/echolot/mail
+>>> 
+>>> 2. Make sure the directory is owned by user mix:
+>>> chown mix. /home/mix/echolot/mail
+>>> 
+>>> 3. Double-check to make sure that *all* of Echolot's files and
+>>> directories are owed by user mix
+>>> 
+>>>  SEC3
+>> 
+>>  All 3 above are now correct.  You can see what is happening at
+>> https://allpingers.net/echolot/echolot.html.  Be sure it is https.  
+>> Just going to https://allpingers.net/echolot/ takes you to an Index 
+>> page and I have yet to find a way to get it to the echolot.html 
+>> file.  I asked this before, but does mixmaster need to be running 
+>> for echolot run correctly?
+>> 
+>>  Thanks for both your and Zax's help.
+>
+> No problem. We'll get it working soon enough.
+>
+> Did you create an alias in /etc/aliases
+>
+> echolot: mix
+>
+> And did you do the the usual routine of
+>
+> sudo newaliases
+> sudo postalias /etc/aliases
+> sudo postfix reload
+>
+> Last suggestion is to take a peak at mix user's procmail.log. It 
+> might help tell us where your return ping messages are hiding.
+>
+>
+>  SEC3
+
+  Do you see anything wrong with this picture?
+
+-rw-r--r-- 1 mix mix  8837 Oct 23  2014 Chain.pm
+-rw-r--r-- 1 mix mix  4328 Oct 23  2014 Commands.pm
+-rw-r--r-- 1 mix mix 11819 Oct 23  2014 Config.pm
+-rw-r--r-- 1 mix mix 18724 Oct 23  2014 Conf.pm
+-rw-r--r-- 1 mix mix  4280 Oct 23  2014 Fromlines.pm
+-rw-r--r-- 1 mix mix  1505 Oct 23  2014 Globals.pm
+-rw-r--r-- 1 mix mix  3548 Oct 23  2014 Log.pm
+-rw-r--r-- 1 mix mix  6349 Oct 23  2014 Mailin.pm
+-rw-r--r-- 1 mix mix  6460 Oct 23  2014 Pinger.pm
+-rw-r--r-- 1 mix mix  2142 Oct 23  2014 Report.pm
+-rw-r--r-- 1 mix mix  5157 Oct 23  2014 Scheduler.pm
+-rw-r--r-- 1 mix mix 35351 Oct 23  2014 Stats.pm
+-rw-r--r-- 1 mix mix  4172 Oct 23  2014 Thesaurus.pm
+-rw-r--r-- 1 mix mix 13242 Oct 23  2014 Tools.pm
+
+  It would be a probably be a good idea if I made the .pm programs 
+executable.  Trying again.
+

@@ -1,0 +1,25 @@
+# vim:set syntax=perl:
+
+# see man pingd.conf(5) for a list of all available configuration options.
+
+$CONFIG = {
+            'separate_rlists'  => 1,
+            'combined_list'    => 1,
+          };
+
+$CONFIG->{'mailin'   } = '/home/meuser/Maildir';
+
+# You probably want to modify these:
+$CONFIG->{'my_localpart'        } = 'loaclpart';
+$CONFIG->{'my_domain'           } = 'example.domain.org';
+$CONFIG->{'operator_address'    } = 'abuse@example.domain.org';
+$CONFIG->{'sitename'            } = 'testsite';
+#$CONFIG->{'recipient_delimiter' } = '+';
+$CONFIG->{'recipient_delimiter' } = '';
+
+$CONFIG->{'mixmaster'} = '/usr/bin/mixmaster';
+$CONFIG->{'homedir'  } = '/home/meuser/echolot';
+$CONFIG->{'pidfile'  } = '/home/meuser/echolot/pingd.pid';
+$CONFIG->{'logfile'  } = '/home/meuser/echolot/echolot.log';
+$CONFIG->{'loglevel'  } = 'info';
+1;

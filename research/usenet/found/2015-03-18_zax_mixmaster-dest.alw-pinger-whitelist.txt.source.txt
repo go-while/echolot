@@ -1,0 +1,8 @@
+message-id: <slrnmgk2su.h7m.admin@snorky.mixmin.net>
+date: Wed, 18 Mar 2015 23:34:54 +0000
+from: Zax <admin@mixmin.net>
+subject: Re: Paranoia Pinger Now 4096 Friendly
+newsgroups: alt.privacy.anon-server
+article-file: articles/apas2014/272985.txt
+lines: 24-40
+note: dest.alw entries to whitelist pingers on middleman remailers

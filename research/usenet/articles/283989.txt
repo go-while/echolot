@@ -1,0 +1,48 @@
+Message-ID: <4ed20266d38b3becd8b60f728ef96e4d@remailer.org.uk>
+Subject: Re: Attn elvis
+Date: Sat, 06 Aug 2016 12:43:55 +0000
+From: Nathan Hale <nobody@remailer.org.uk>
+References: <slrnnqbdnv.1iv.admin@fleegle.mixmin.net>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!news.usenet.farm!..!..!not-for-mail
+Comments: This message did not originate from the Sender address above.
+ It was remailed automatically by anonymizing remailer software.
+ Please report problems or inappropriate use to the
+ remailer administrator at <abuse@remailer.org.uk>.
+Newsgroups: alt.privacy.anon-server
+Injection-Info: mail2news.mixmin.net; mail-complaints-to=abuse@mixmin.net
+Lines: 33
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:283989
+
+> On Sat, 6 Aug 2016 01:08:09 -0400, SEC3 wrote in
+> Message-Id: <no3rbq$54b$1@solani.org>:
+> 
+> 
+> 
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAABAAE=
+>> -----End Mix Key-----
+> 
+> Echolot doesn't match the "=" sign on the end of the key block.  It's
+> the Base64 padding character and, in the case of 1024 and 4096 bit keys,
+> there is no padding.
+> 
+> To fix this, Echolot needs a small patch:
+> 
+> --- Conf.pm     2014-10-23 16:51:19.000000000 +0100
+> +++ newConf.pm  2016-08-06 10:59:04.197118471 +0100
+> @@ -285,7 +285,7 @@
+> my @mix_keys = ($reply =~ /^-----Begin \s Mix \s Key-----\r?\n
+> \d+\r?\n
+> -----End \s Mix \s Key-----$/xmg );
+> for (@mix_confs) {
+> my ($nick, $address, $keyid, $version, $caps, $created, $expires) = /^
+> 
+> 
+  I believe that it is more practical for remailers to use a standard 4096 key that to have every pinger change echolot to accommodate a unique key size.

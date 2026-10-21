@@ -1,0 +1,50 @@
+Message-ID: <slrnqfao6q.u39.admin@fleegle.mixmin.net>
+Subject: Re: Cloaked Yamn Pinger is broken
+Date: Mon, 03 Jun 2019 18:03:06 +0000
+From: Zax <admin@mixmin.net>
+References: <0_VIE.24593$vI3.11653@fx10.iad> <qd1bpu$11e$1@neodome.net>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!news.usenet.farm!..!..!not-for-mail
+Newsgroups: alt.privacy.anon-server
+Organization: Mixmin
+Injection-Date: Mon, 3 Jun 2019 18:03:06 -0000 (UTC)
+Injection-Info: news.mixmin.net; posting-host="c4af4a3027e8317d29ea238d8aa6bb2f616aa3fc";
+User-Agent: slrn/pre1.0.4-2 (Linux)
+Lines: 35
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:305653
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+On Sun, 2 Jun 2019 15:33:01 -0500, Anonymous wrote in
+Message-Id: <qd1bpu$11e$1@neodome.net>:
+
+>> I would need to keep that pubring.mix file up-to-date?
+
+It's a long time since I've studied it but I think the pubring.mix and
+mix.cfg file in that directory are updated by echolot when it's
+generating outbound pings.
+
+If you look in your echolot/pingd.conf file, it should have a variable
+called mixhome that points to this directory.
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEJHudPu4ysYQcZBcigyyPTc2QQmMFAlz1YNkACgkQgyyPTc2Q
+QmMJ2w/9H/bg0zWKXhQDaHTTYu0Mpx1t74oMUAvg+eumIxBCXq65JURDsQAyCgZR
+UKU4Y2OHP61pE7u+du3wf17skXNUcCt0gsevijFshMHHItH4G+wpcKlRTiJ+Wwmr
+Svw9dumztNiajM6N8n0WkuKhE1T91VqMmBQzabO2T1eCQyi6arvcK2CbFoAWzBkl
+JL1COch2pBkGtyDDttjzQ8QMFkrFh/Swpl9fY8mVIsdVKGvRiWIWrN+wKJNPQ6P6
+6M1C/pHAlY5GVP3LEpaFWNE0/tFzlWPPoO6dlM7QOXVt2HzP1zZcL4LckWLGEwn3
+lFQarieHEzuv5mC/s0Di7MD+EK+W1BR6eO1lOH3Uy0jKtzGemoPpZH4NpiNFj1TA
+rwLTgih4L5JsgRSuXYTGcXlzv8kqri6GYJRJWVuGRGN/TjGuc5tsbpHd7njTuiCK
+mgZ3sIIcR4NbZVo5w4nlprk+EMoIQ77vmsawFeqczN61gGl4IbOvUd+mO9N7uzij
+VVtAslqKi5BhqD47Gyzmzb8Jc35l+PN9on2ShZY57avhWmP1aO4dRSgihUdnvFL1
+J+JaJCjZobTH5mIPzxvgPBGRFu9iyXcq1cRkmHFSNpUksr7GvCOOgpaaBJUnmEhV
+t2FTzrmVchQifSpTktACxUNoNLNo95ZyxmPlAf6xRa1P8Wu4ypo=
+=4r74
+-----END PGP SIGNATURE-----
+
+-- 
+pub   1024D/228761E7 2003-06-04 Steven Crook <steve@mixmin.net>
+      Key fingerprint = 1CD9 95E1 E9CE 80D6 C885  B7EB B471 80D5 2287 61E7
+ssb  rsa4096/832C8F4DCD904263 created: 2019-05-04 expires: 2024-05-02 usage: S

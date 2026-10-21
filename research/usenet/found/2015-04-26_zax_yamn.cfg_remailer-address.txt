@@ -1,0 +1,27 @@
+> I just downloaded the latest windows_386 version from the your 
+> website.
+>
+> Below are the messages I get with a yamn.cfg file:
+>
+> Error=550 5.1.0 <mix@nowhere.invalid> sender rejected : invalid sender domain
+
+Comcast are checking that your email sender is a valid domain.  Yamn is
+using nowhere.invalid as a default so they don't like it.
+
+Try adding this to your yamn.cfg
+
+[Remailer]
+Address = "noreply@gmail.com"
+
+Comcast might not like that either but I'd suggest trying it before your
+real email address.
+
+I should probably move this from the [Remailer] section to the [Mail]
+section.  I'd previously assumed that only remailers would need to set a
+real sender address.  Wrong!!
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2
+
+iQIcBAEBCAAGBQJVPWtOAAoJEC3jHKG+PvqnzJUP/3yGM4KGacCO4xUfgT85lRiv
+MadiuxqaX5T5sl+bVjn9i51kDdtiBNkCGJF33dck1KI6Ny9eM7ddQuy8hG2zng2D

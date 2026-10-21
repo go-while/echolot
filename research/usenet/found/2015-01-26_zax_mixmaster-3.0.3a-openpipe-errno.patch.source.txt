@@ -1,0 +1,8 @@
+message-id: <slrnmccgqb.hdl.admin@snorky.mixmin.net>
+date: Mon, 26 Jan 2015 13:38:19 +0000
+from: Zax <admin@mixmin.net>
+subject: Re: Ping Zax
+newsgroups: alt.privacy.anon-server
+article-file: articles/apas2014/272144.txt
+lines: 40-72
+note: Mixmaster util.c debug patch (PGP-dash-escaped '- -' lines inside signed message; unescape before applying)

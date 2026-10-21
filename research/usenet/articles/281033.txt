@@ -1,0 +1,112 @@
+Message-ID: <nbse0t$9i6$1@news.mixmin.net>
+Subject: Re: Pinger problem
+Date: Thu, 10 Mar 2016 12:22:18 -0600
+From: Anonymous <anonymous@anonymous.com>
+References: <e1f44daf23ede5907671ac36392b3006@hoi-polloi.org> <3699120895e4d5d02dba5a40f732a05b@remailer.paranoici.org> <nbnpgu$hip$1@dont-email.me> <nbps17$v90$1@news.mixmin.net> <nbq1j8$u86$1@dont-email.me> <nbq4va$fid$1@news.mixmin.net> <nbq9hm$tfj$1@dont-email.me> <nbqbor$r6v$1@news.mixmin.net> <nbqhqr$pk4$1@dont-email.me> <nbs5to$rlh$1@news.mixmin.net> <nbs7jc$6es$1@dont-email.me> <nbs8eu$mh$1@news.mixmin.net> <slrnne3bno.e31.admin@fleegle.mixmin.net>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!news.usenet.farm!..!..!not-for-mail
+Newsgroups: alt.privacy.anon-server
+Organization: Anonymous
+Reply-To: anonymous@anonymous.com
+Mime-Version: 1.0
+Content-Type: text/plain; charset="iso-8859-15"; format=flowed
+Content-Transfer-Encoding: 8bit
+Injection-Date: Thu, 10 Mar 2016 18:22:21 -0000 (UTC)
+Injection-Info: news.mixmin.net; posting-host="93efdb1cdf4b916695347b88bf10c2d1f153b1ff";
+X-Newsreader: MesNews/1.08.03.00-gb
+Lines: 94
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:281033
+
+  OK, that was timely.  I was just starting on this area when I found 
+your message.  I am going to try this with echolot in user mix and then 
+in user pinger if that doesn't work.
+
+>
+>>   Since I had success install echolot in user pinger before, I am 
+>> returning to that route and try to find a way for echolot to execute 
+>> mixmaster from the different user mix.
+>
+> This will probably cause you loads of problems as Echolot needs to 
+> write files into the ~/Mix directory.  If you split them under 
+> different user accounts, things will get complicated.  Maybe try 
+> going through things one step at a time.
+>
+> First of all, I'd suggest creating a global procmailrc file as
+> /etc/procmailrc.  There are a number of settings you probably want to 
+> be common across all your user accounts and you can handle the 
+> exceptions (like echolot) later.
+>
+> /etc/procmailrc:
+> #!/bin/bash
+>
+> SHELL=/bin/bash
+> DROPPRIVS=yes
+> PMDIR=$HOME/procmail
+> DATE=`date +%Y%m%d`
+> MAILDIR=${HOME}/Maildir/
+> ORGMAIL=$MAILDIR
+> DEFAULT=$ORGMAIL
+>
+> You might want to add some other settings in there later but that's a
+> good foundation to build on.  Your mail will now be delivered to each
+> user account in Maildir format.
+>
+> Now create your account for Echolot (doesn't matter what name you 
+> give it).
+>
+> Login as that user and create the basic Maildir folders:
+> mkdir -p ~/Maildir/{cur,new,tmp}
+>
+> Create a procmail log directory:
+> mkdir ~/procmail
+>
+> Create a procmailrc for this user:
+> ~/.procmailrc:
+> LOGFILE=$PMDIR/$DATE
+> VERBOSE=no
+>
+> This will log each delivery from procmail to that user's Maildir in a
+> file called ~/procmail/20160310 (or whatever the date is)
+>
+> Now send the user a test message.  If all goes well, it will arrive 
+> in ~/Maildir/new/
+>
+> You can also check your procmail logfile for any messages.
+>
+> Once that's sorted, install Mixmaster using your Echolot user 
+> account. Stick with the defaults and install it to ~/Mix.
+>
+> Now untar echolot-2.1.9 and then rename the directory to echolot:
+> mv ~/echolot-2.1.9 ~/echolot
+>
+> Edit your previously created ~/.procmailrc file and add the 
+> following: #Default Recipe for Echolot
+>> 0
+> $HOME/echolot/mail/
+>
+> Make sure you leave a blank line between these new lines and the
+> existing lines.  As in:
+>
+> LOGFILE=$PMDIR/$DATE
+> VERBOSE=no
+>
+> #Default Recipe for Echolot
+>> 0
+> $HOME/echolot/mail/
+>
+> Send your Echolot user another email.  If all goes well, the mail 
+> will now arrive in ~/echolot/mail/new/.  If so, great, you've 
+> overridden the default mail location with the one Echolot wants.
+>
+> Now you can configure Echolot's pingd.conf file.
+> Also edit the ~/echolot/tools/pingctl file and change the following 
+> two entries to match your configuration:
+> USER=echolot
+> BASEDIR="/home/echolot/echolot"
+>
+> Now you're ready to go and you can start Echolot with the command:
+> ~/echolot/tools/pingctl start
+>
+> Watch the pingd.log for any messages.
+>
+> Finally, add some remailers to your pinger.
+

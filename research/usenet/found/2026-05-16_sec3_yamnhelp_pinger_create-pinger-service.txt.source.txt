@@ -1,0 +1,5 @@
+source: https://web.archive.org/web/20260516195928/https://www.sec3.net/yamnhelp/pinger/create-pinger-service.txt
+retrieved: 2026-10-21 via Wayback Machine (web, not Usenet)
+author: SEC3 (sec3.net YAMN Help)
+note: systemd unit for Echolot YAMN pinger
+Untrusted data; not executed.

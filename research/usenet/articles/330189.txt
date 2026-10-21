@@ -1,0 +1,41 @@
+Message-ID: <20250708.132127.dddc4a89@mixmin.net>
+Subject: Re: PING mixmin remops
+Date: Tue, 8 Jul 2025 13:21:27 +0100
+From: Yamn Remailer <noreply@mixmin.net>
+References: <20250706.173821.b1fd6ee6@yamn.paranoici.org><184fc0510fa397c3$84498$591474$802601b3@news.usenetexpress.com>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!ygg-lux.newsdeef.eu!lux-feed1.newsdeef.eu!srl.newsdeef.eu!weretis.net!feeder8.news.weretis.net!news.mixmin.net!news2.arglkargh.de!sewer!news.dizum.net!not-for-mail
+Mime-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+Newsgroups: alt.privacy.anon-server
+Organization: dizum.com - The Internet Problem Provider
+X-Abuse: abuse@dizum.com
+Injection-Info: sewer.dizum.com - 2001::1/128
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:330189
+
+SEC3 <admin@sec3.net> wrote:
+> 
+> On 7/6/25 13:38, Anonymous wrote:
+> > The following YAMN keys are expired
+> > 
+> > .....
+> 
+> This happens because Zax's Yamn remailer keys have a very short
+> lifetime (5 days). That doesn't allow them much overlap time between
+> old key and new key. But the real problem is Echolot. It only
+> updates it's pubring.mix file every 8 hours.
+> 
+> # pingd.conf file
+> Default: 'buildkeys' => 8*60*60, # every 8 hours
+> 
+> So during those 8 hours you may occasionally see old Yamn remailer
+> keys that have not yet been updated on the pinger side.
+> 
+> At my Barnish Yamn Pinger I have just changed the 8 hours to
+> 1 hour to accomodate Zax's short-lived keys. Hopefully that
+> will resolve the situation in the future. At least for Barnish
+> pinger users.
+>
+
+
+Thanks a lot SEC3

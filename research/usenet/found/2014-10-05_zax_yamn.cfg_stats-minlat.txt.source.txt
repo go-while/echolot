@@ -1,0 +1,8 @@
+message-id: <slrnm336nu.veq.admin@snorky.mixmin.net>
+date: Sun, 05 Oct 2014 19:24:46 +0000
+from: Zax <admin@mixmin.net>
+subject: Re: Yet another Mix Net
+newsgroups: alt.privacy.anon-server
+article-file: articles/apas2014/270519.txt
+lines: 26-36
+note: [Stats] Minlat = 1 workaround for 'Insufficient remailers'

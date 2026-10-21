@@ -1,0 +1,6 @@
+Article: alt.privacy.anon-server:305621
+Message-ID: <slrnqf7mgl.u39.admin@fleegle.mixmin.net>
+Date: Sun, 02 Jun 2019 14:15:49 +0000
+From: Zax <admin@mixmin.net>
+Subject: Re: Cloaked Yamn Pinger is broken
+Context: SEC3 asked "Would you share your Yamn client config please?" -- this is the yamn.cfg of the yamn client used by Zax's Echolot pinger (user echolot-yamn on fleegle.mixmin.net).

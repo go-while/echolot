@@ -1,0 +1,8 @@
+message-id: <U%7wx.390864$iA.167710@fe32.am1>
+date: Tue, 04 Aug 2015 15:03:15 -0400
+from: SEC3 <pinger-admin@nospam.sec3.net>
+subject: Attn Allpingers.net Maintainer
+newsgroups: alt.privacy.anon-server
+article-file: articles/apas2014/275654.txt
+lines: 18-58
+note: SEC3 pinger allpingers.txt entry (wrong vs correct URLs)

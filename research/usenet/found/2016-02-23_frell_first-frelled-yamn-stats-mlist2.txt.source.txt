@@ -1,0 +1,8 @@
+message-id: <echoyamn1_1456222800_mlist2.txt@msgid.frell.theremailer.net>
+date: Tue, 23 Feb 2016 10:24:01 +0000
+from: Estragon <estragon@frell.invalid>
+subject: Frelled Yamn Stats    #1 - 2016-02-23
+newsgroups: alt.privacy.anon-server.stats
+article-file: articles/stats/echoyamn1_1456222800_mlist2.txt@msgid.frell.theremailer.net.txt
+lines: 13-44
+note: First 'Frelled Yamn Stats' post: Frell's Echolot-based YAMN pinger output (Stats-Version 2.0)

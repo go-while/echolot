@@ -1,0 +1,55 @@
+YAMN stands for "Yet Another Mix Net"
+
+YAMN (https://github.com/crooks/yamn) tries to look
+like its famous older brother Mixmaster. But there are
+some significant differences and improvements. For example,
+there are revised crypto functions. Instead of Mixmaster's
+Triple-DES,RSAES-PKCS1-v1_5 and MD5, YAMN uses AES, NaCl
+Box and Blake2. Also deterministic header padding has been
+added so as to protect against tagging attacks.
+
+These tutorials provide you with help getting started with YAMN.
+
+PROGRAM
+There are three ways to use YAMN under Windows: on the
+command line; by using Christian Danner's Omnimix program;
+<https://www.danner-net.de/om.htm> or by using Inwtx's
+Yamn Remailer Client created by Inwtx Admin
+<https://dotfiles.tnetconsulting.net/files/YAMN_Remailer_Client_v0.4.05_%5Bbuild_1322%5D.zip>.
+
+Important Notes on OmniMix:
+-> There's a Remailer selector at the Mailer tab:
+   Default or Mixmaster or Yamn. Choose Yamn.
+
+YAMN HELP
+A collection of tutorials on getting started with the
+YAMN anonymous remailer.These tutorials provide you
+with help getting started with YAMN.
+
+Tutorials
+Install YAMN as a remailer client (Windows 10)
+Install the Go language on Debian/Ubuntu (required to build YAMN)
+Install YAMN as a remailer client (Debian/Ubuntu)
+Install YAMN as a remailer server on a VPS
+Install a YAMN Pinger on a VPS
+<https://sec3.net/yamnhelp/>
+
+PINGER
+<https://tincture.ws/pinger/yamn/>
+<https://echolot.virebent.art/>
+<https://www.haph.org/yamn/>
+<https://www.mixmin.net/yamn/>
+<http://echolot.theremailer.net/yamn/>
+
+MAIL RELAY SERVER
+intended for use with Mixmaster & YAMN remailer
+<https://www.sec3.net/misc/mail-relays.txt>
+
+RUN a YAMN REMAILER (LINUX)
+Debian package to run a YAMN remailer on a Linux server
+<https://github.com/inwtx/yamn>
+
+THE REMOPS MAILING LIST
+A good place to announce your new YAMN remailer,
+a good forum for newbie remops to ask questions and get help.
+<https://lists.fruiti.org/mailman/listinfo/remops>

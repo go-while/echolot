@@ -1,0 +1,48 @@
+Message-ID: <BNa2H.108661$Li1.15518@fx11.iad>
+Subject: Ping Zip2 Admin
+Date: Fri, 28 Aug 2020 13:03:29 -0400
+From: SEC3 <noreply@sec3.net>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!not-for-mail
+Newsgroups: alt.privacy.anon-server
+X-Mozilla-News-Host: news://usnews.blocknews.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Thunderbird/68.10.0
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+Lines: 31
+X-Complaints-To: abuse@blocknews.net
+Nntp-Posting-Date: Fri, 28 Aug 2020 17:03:29 UTC
+Organization: blocknews - www.blocknews.net
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:310623
+
+There appears to be something wrong with your pinger, at least for mix
+pings which are not getting processed.
+
+<https://zip2.in/echolot/mlist.txt>
+
+In pingd.conf make sure you tell Echolot where your mixmaster binary is
+located:
+
+For an example, my SEC3 pinger's pingd.conf has this line:
+
+'mixmaster'        => '/home/echolot/Mix/mixmaster',
+
+Then restart echolot
+./pingd --detach stop
+./pingd --detach start
+
+You might also try these commands which cannot hurt:
+
+./pingd buildkeys
+./pingd buildstats
+./pingd buildthesaurus
+
+('No need to restart after these commands.)
+
+-- 
+SEC3
+
+Contact information at <https://sec3.net>
+I am also on Keybase <https://keybase.io/sec3>
+YAMN Help <https://sec3.net/yamnhelp/>

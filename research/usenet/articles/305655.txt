@@ -1,0 +1,47 @@
+Message-ID: <xydJE.37476$Bt4.36982@fx45.iad>
+Subject: Re: Cloaked Yamn Pinger is broken
+Date: Mon, 3 Jun 2019 14:21:17 -0400
+From: SEC3 <noreply@sec3.net>
+References: <0_VIE.24593$vI3.11653@fx10.iad> <qd1bpu$11e$1@neodome.net> <slrnqfao6q.u39.admin@fleegle.mixmin.net>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!news.usenet.farm!..!..!not-for-mail
+Newsgroups: alt.privacy.anon-server
+Openpgp: preference=signencrypt
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.0
+MIME-Version: 1.0
+In-Reply-To: <slrnqfao6q.u39.admin@fleegle.mixmin.net>
+Content-Type: text/plain; charset=utf-8
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+Lines: 25
+X-Complaints-To: abuse@blocknews.net
+NNTP-Posting-Date: Mon, 03 Jun 2019 18:21:17 UTC
+Organization: blocknews - www.blocknews.net
+X-Received-Bytes: 1864
+X-Received-Body-CRC: 1618162767
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:305655
+
+> On Sun, 2 Jun 2019 15:33:01 -0500, Anonymous wrote in
+> Message-Id: <qd1bpu$11e$1@neodome.net>:
+> 
+>>> I would need to keep that pubring.mix file up-to-date?
+> 
+> It's a long time since I've studied it but I think the pubring.mix and
+> mix.cfg file in that directory are updated by echolot when it's
+> generating outbound pings.
+> 
+> If you look in your echolot/pingd.conf file, it should have a variable
+> called mixhome that points to this directory.
+
+This is very helpful. I never even considered the mixhome directory.
+Looking at it now I see it is populated by a type.list, a Yamn-inized
+mix.cfg and a very up-to-date pubring.mix
+
+Thank you for your help.
+
+-- 
+SEC3
+
+Contact information at <https://sec3.net>
+I am also on Keybase <https://keybase.io/sec3>
+monero:88aSY6Nzm7i2ug943YG6Sm2S3t8CkcXZogid4kkAR8Rm3tG64WvtexHYv94Do11J6XB8Xibf23mKHiKuYd1MEi3zBLyXyK6

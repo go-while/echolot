@@ -1,0 +1,4 @@
+source: HTTP GET http://echolot.theremailer.net/yamn/echolot.html (live web page, not Usenet)
+fetched: 2026-10-21
+operator: remops.frell.theremailer.net (Frell YAMN pinger, Echolot 2.1.9)
+note: rendered OUTPUT of a yamn-adapted templates/echolot.html (Type I sections commented out with <!-- -->, Thesaurus + From Headers kept). Not the template itself, but enough to reconstruct it against Echolot 2.1.9 templates/echolot.html. Untrusted data.

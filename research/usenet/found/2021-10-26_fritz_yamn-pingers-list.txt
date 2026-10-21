@@ -1,0 +1,27 @@
+austria
+ base        = https://www.tahina.priv.at/pinger/yamn/
+ mlist2      = https://www.tahina.priv.at/pinger/yamn/mlist2.txt
+ mixring     = https://www.tahina.priv.at/pinger/yamn/pubring.mix
+ 
+mixmin
+ base        = https://www.mixmin.net/yamn/
+ mlist2      = https://www.mixmin.net/yamn/mlist2.txt
+ mixring     = https://www.mixmin.net/yamn/pubring.mix
+ 
+tincture
+ base        = https://www.tincture.ws/pinger/yamn/
+ mlist2      = https://www.tincture.ws/pinger/yamn/mlist2.txt
+ mixring     = https://www.tincture.ws/pinger/yamn/pubring.mix
+ 
+victor
+ base        = https://echolot.virebent.art/
+ mlist2      = https://echolot.virebent.art/mlist2.txt
+ mixring     = https://echolot.virebent.art/pubring.mix
+
+
+NEW
+
+Haph
+ base          = https://www.haph.org/yamn/
+ mlist2        = https://www.haph.org/yamn/mlist2.txt
+ mixring       = https://www.haph.org/yamn/pubring.mix

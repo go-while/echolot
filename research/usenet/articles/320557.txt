@@ -1,0 +1,54 @@
+Message-ID: <iE1lL.9342$Tcw8.1316@fx10.iad>
+Subject: Re: Ping Zax
+Date: Sat, 10 Dec 2022 10:32:30 -0500
+From: SEC3 <admin@sec3.net>
+References: <rJv8L.1611441$G_96.503180@fx13.ams1>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!not-for-mail
+Mime-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Thunderbird/102.5.1
+Newsgroups: alt.privacy.anon-server
+Content-Language: en-US
+In-Reply-To: <rJv8L.1611441$G_96.503180@fx13.ams1>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+Lines: 36
+X-Complaints-To: abuse@blocknews.net
+Nntp-Posting-Date: Sat, 10 Dec 2022 15:32:30 UTC
+Organization: blocknews - www.blocknews.net
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:320557
+
+On 2022-11-02 11:08, SEC3 wrote:> On Oct 27 a new Yamn remailer was 
+announced.
+ >
+ > yamn@beaufusil.com
+ >
+ > Please add it to your Yamn pinger at <https://www.mixmin.net/yamn>
+ >
+It is now December and you still haven't added Beaufusil to your Yamn 
+pinger.
+
+There is now _another_ new pinger on the scene, lorem. You haven't added 
+that one either. Please add:
+
+yamn@beaufusil.com
+yamn@eocto.net
+
+To avoid this from happening so regularly I urge you, again, to update 
+your Echolot's pingd.conf file. Your YAMN pinger seems to be using the 
+default setting: "Auto-add a new YAMN remailer if 6 or more remailers 
+have listed it in their remailer-conf files."
+
+If you are running your pinger unattended you ought to change that 
+default from 6 to something lower.
+
+Add this line to pingd.conf:
+
+       'reliable_auto_add_min'     => 3,
+
+Thank you.
+
+-- 
+SEC3
+
+YAMN Help Tutorial - https://www.sec3.net/yamnhelp/
+

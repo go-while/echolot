@@ -1,0 +1,52 @@
+Message-ID: <slrnnqbdnv.1iv.admin@fleegle.mixmin.net>
+Subject: Re: Attn elvis
+Date: Sat, 06 Aug 2016 10:07:59 +0000
+From: Zax <admin@mixmin.net>
+References: <no3rbq$54b$1@solani.org>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!news.usenet.farm!..!..!not-for-mail
+Newsgroups: alt.privacy.anon-server
+Organization: Mixmin
+Injection-Date: Sat, 6 Aug 2016 10:07:59 -0000 (UTC)
+Injection-Info: news.mixmin.net; posting-host="c3d7e904b12873280bc4806d3dd3c257e0a1d3b2";
+User-Agent: slrn/pre1.0.3-10 (Linux)
+Lines: 37
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:283986
+
+On Sat, 6 Aug 2016 01:08:09 -0400, SEC3 wrote in
+Message-Id: <no3rbq$54b$1@solani.org>:
+
+[snip]
+
+> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+> AAAAAAAAAAAAAAAAAAAAAAABAAE=
+> -----End Mix Key-----
+
+Echolot doesn't match the "=" sign on the end of the key block.  It's
+the Base64 padding character and, in the case of 1024 and 4096 bit keys,
+there is no padding.
+
+To fix this, Echolot needs a small patch:
+
+--- Conf.pm     2014-10-23 16:51:19.000000000 +0100
++++ newConf.pm  2016-08-06 10:59:04.197118471 +0100
+@@ -285,7 +285,7 @@
+        my @mix_keys = ($reply =~ /^-----Begin \s Mix \s Key-----\r?\n
+                                  [0-9a-f]{32}\r?\n
+                                                          \d+\r?\n
+-                                                         (?:[a-zA-Z0-9+\/]*\r?\n)+
++                                                         (?:[a-zA-Z0-9+\/]*=?\r?\n)+
+                                                          -----End \s Mix \s Key-----$/xmg );
+        for (@mix_confs) {
+                my ($nick, $address, $keyid, $version, $caps, $created, $expires) = /^
+
+-- 
+pub   1024D/228761E7 2003-06-04 Steven Crook <steve@mixmin.net>
+      Key fingerprint = 1CD9 95E1 E9CE 80D6 C885  B7EB B471 80D5 2287 61E7
+sub  4096R/BE3EFAA7  created: 2014-11-14  expires: 2016-11-13  usage: S

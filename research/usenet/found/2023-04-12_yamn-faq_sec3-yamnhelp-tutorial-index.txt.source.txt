@@ -1,0 +1,8 @@
+message-id: <20230412.233046.89a1b002@mixmin.net>
+date: Wed, 12 Apr 2023 23:30:46 +0100
+from: Yamn Remailer <noreply@mixmin.net>
+subject: YAMN an anonymous remailer program
+newsgroups: alt.privacy
+article-file: articles/byid/20230412.233046.89a1b002@mixmin.net.txt
+lines: 15-69
+note: Periodic YAMN FAQ post; lists SEC3 yamnhelp tutorials incl. 'Install a YAMN Pinger on a VPS' at https://sec3.net/yamnhelp/ (site gone)

@@ -1,0 +1,8 @@
+message-id: <slrnmjh9k4.m9.admin@snorky.mixmin.net>
+date: Thu, 23 Apr 2015 08:00:04 +0000
+from: Zax <admin@mixmin.net>
+subject: Re: Basic Yamn Setup Questions
+newsgroups: alt.privacy.anon-server
+article-file: articles/apas2014/273641.txt
+lines: 40-95
+note: Basic client yamn.cfg (SMTPRelay/SMTPPort/Username/Password/UseTLS/MXRelay)

@@ -1,0 +1,8 @@
+message-id: <pc56c3dj4hjr0l8ugeed9i35d7q1nec876@4ax.com>
+date: Wed, 15 Aug 2007 15:35:38 +0000
+from: Steven <steven@nothere.invalid>
+subject: Re: Echolot pingd.conf 'mailin' question.
+newsgroups: alt.privacy.anon-server
+article-file: articles/byid/pc56c3dj4hjr0l8ugeed9i35d7q1nec876@4ax.com.txt
+lines: 44-68
+note: Complete minimal Echolot pingd.conf (Mixmaster-era, Debian/Exim4 Maildir); posted by a new pinger operator

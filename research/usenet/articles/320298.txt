@@ -1,0 +1,30 @@
+Message-ID: <tiq1cc$1bcf4$1@news.mixmin.net>
+Subject: Re: ATTN Zax
+Date: Wed, 19 Oct 2022 18:31:25 -0500
+From: "Anonymous" <nobody@remailer.paranoici.org>
+References: <AUf1L.595617$G_96.278766@fx13.ams1>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!not-for-mail
+Newsgroups: alt.privacy.anon-server
+Organization: Mixmin
+Injection-Date: Wed, 19 Oct 2022 23:31:26 -0000 (UTC)
+Injection-Info: news.mixmin.net; posting-host="57898ee190c6bfe39b288eec25d22e89d76d40c1"; logging-data="1421796"; mail-complaints-to="abuse@mixmin.net"
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:320298
+
+> 
+> I know you don't read this group regularly but I am trying to contact you here as a last resort since emails to you are not being answered. I tried
+> 
+> steve at mixmin.net
+> admin at mixmin.net
+> steve at stmellion.org
+> 
+> Your Yamn pinger is missing  new remailer yamn@micromix.org Please add it.
+> 
+> Also, consider adjusting your Yamn pinger's pingd.conf:
+> 
+> # 'reliable_auto_add_min'     => 6,
+> 'reliable_auto_add_min'     => 2,
+> 
+> There are so few YAMN remailers now. Expecting 6 of them to be carrying a new remailer is not realistic anymore.
+> 
+> 
+  There is a good chance that Zax may be gravely ill or dead from the vaccine jabs.

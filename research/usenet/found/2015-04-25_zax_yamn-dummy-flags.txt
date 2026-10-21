@@ -1,0 +1,17 @@
+> When doing yamn -h it shows also "-d=false: Inject a dummy message",
+> which is not documented in the manual, or shown in the sample.cfg.
+>
+> Can it be set in yamn.cfg too, so that dummy messages get generated
+> automatically, instead of doing a yamn -d?
+
+There are 2 related flags:
+
+- --dummy (-d) Manually inject a dummy message
+- --nodummy Disable automatic dummy messages
+
+If neither flag is specified, the client (and server) will automatically
+inject dummies when sending messages from the pool.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2
+

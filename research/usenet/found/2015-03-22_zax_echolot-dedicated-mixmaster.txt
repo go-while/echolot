@@ -1,0 +1,23 @@
+
+On Sun, 22 Mar 2015 09:51:44 -0400 (EDT), Anonymous wrote in
+Message-Id: <9c882e5f563e91f56bc1ebef3fffe41e@foto.nl1.torservers.net>:
+
+>   In the Echolot pingd.conf file, it has this:
+>
+>   # Name of the mixmaster executable. If it is not in your PATH make
+>   # sure to include path information.
+>         'mixmaster'        => '/home/echolot/Mix/mixmaster',
+>
+>   Can you simply point to your current remailer mixmaster in 
+> /home/Mix/mix and use it or do you have to have a completely 
+> separate mixmaster setup in /home/pinger/Mix/mix?  The instructions 
+> say that you can use an existing mixmaster executable, but do you 
+> have to put all the other mixmaster files and folders (pool) into 
+> the additional folder '/home/echolot/Mix/'?
+
+I'd suggest creating a dedicated Mixmaster binary for the pinger.  Just
+run the Mixmaster install as the echolot user and it will put it in the
+correct place.  On the Mixmaster install, say 'no' when asked if you
+want to run a remailer.
+
+-----BEGIN PGP SIGNATURE-----

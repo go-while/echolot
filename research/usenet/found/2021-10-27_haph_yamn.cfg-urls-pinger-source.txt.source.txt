@@ -1,0 +1,8 @@
+message-id: <ec07b6f530b90dadd6ad2fc02f52fa50@remailer.paranoici.org>
+date: Wed, 27 Oct 2021 17:33:27 +0000
+from: Anonymous <nobody@remailer.paranoici.org>
+subject: Re: YAMN Pinger - updated
+newsgroups: alt.anonymous.email,alt.privacy.anon-server,alt.privacy.anon-server.stats
+article-file: articles/stats/ec07b6f530b90dadd6ad2fc02f52fa50@remailer.paranoici.org.txt
+lines: 53-59
+note: yamn.cfg [Urls] section to select pinger source (Haph operator)

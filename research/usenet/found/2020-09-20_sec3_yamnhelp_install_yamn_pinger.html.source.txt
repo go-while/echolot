@@ -1,0 +1,5 @@
+source: https://web.archive.org/web/20200920130756/http://sec3.net/yamnhelp/install_yamn_pinger.html
+retrieved: 2026-10-21 via Wayback Machine (web, not Usenet)
+author: SEC3 (sec3.net YAMN Help)
+note: Original 'Install Echolot YAMN Pinger on a VPS' tutorial: stock crooks/echolot + Zax Conf.pm + YAMN-specific templates/echolot.html + pingd.conf (SEC3's 'Cloaked Yamn Pinger') + yamn.cfg, all from https://www.sec3.net/yamnhelp/pinger/ (those 4 files are NOT in Wayback)
+Untrusted data; not executed.

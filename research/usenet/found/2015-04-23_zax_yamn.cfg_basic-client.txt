@@ -1,0 +1,56 @@
+
+> Info: 2015/04/21 19:04:32 client.go:346: Fetching 
+> http://www.mixmin.net/yamn/pubring.mix and storing in C:\Program 
+> Files\YAMN_WinXP_32bit/pubring.mix
+> Info: 2015/04/21 19:04:33 client.go:346: Fetching 
+> http://www.mixmin.net/yamn/mlist2.txt and storing in C:\Program 
+> Files\YAMN_WinXP_32bit/mlist2.txt
+Stats files have now been downloaded from the pinger to the directory
+you're running Yamn from.
+
+> Chain: yamn4@mixmin.net,yamn3@mixmin.net,yamn2@mixmin.net
+Default, 3 remailer random chain was selected.  Unfortunately, they are
+all hosted by me but that's alright for testing.
+
+> Warn: 2015/04/21 19:04:55 mail.go:237: Error Dialing dial tcp 
+> 188.40.76.149:25: ConnectEx tcp: A connection attempt failed 
+> because the connected party did not properly respond after a period 
+> of time, or established connection failed because connected host 
+> has failed to respond.
+Yamn includes a DNS resolver.  By default it attempts to send your mail
+directly to the mailserver (MX) of the first hop in the chain.  In this
+instance, it failed.  It could be that your ISP blocks outbound mail on
+port 25 or maybe a network glitch.
+
+If you persistently see these messages, you might need to create a
+yamn.cfg file and tell it your mail setup.
+
+Here is a basic cfg file that might help:
+
+[Mail]
+SMTPRelay = "smtp.yourisp.net"
+SMTPPort = 587
+Username = "your smtp userid"
+Password = "your smtp password"
+UseTLS = true
+MXRelay = false
+
+If your ISP's smtp doesn't support TLS, you might need to change
+"UseTLS" to false.  MXRelay defaults to true.  This overrides the other
+settings and tells Yamn to use the recipient's SMTP server.
+
+> Is there a basic setup file that needs to be configured before the 
+> program is launched?
+>
+> How do I point Yamn to my GPG pubring and secring key files?
+You don't unless you're running a server.  All the stats and keys are
+automatically downloaded (by default) from a pinger.
+
+Thanks very much for trying it out.  It makes my life much easier when I
+get feedback from real users.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2
+
+iQIcBAEBCAAGBQJVOKaEAAoJEC3jHKG+Pvqnp/4QALiHC1eNTTalvLwK/RbV9GZS
+NA9KYfoeEMyJjwWSIFKD6JhXJVfJ0VqTGd0175SP3CuIVfkTE+UcFh23r1e2OCHU

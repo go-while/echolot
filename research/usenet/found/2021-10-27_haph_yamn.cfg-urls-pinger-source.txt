@@ -1,0 +1,7 @@
+In yamn.cfg
+ you can change your pinger source by adding
+
+[Urls]
+Fetch = true
+Pubring = https://www.haph.org/yamn/pubring.mix
+Mlist2 = https://www.haph.org/yamn/mlist2.txt

@@ -1,0 +1,131 @@
+Message-ID: <slrnne3bno.e31.admin@fleegle.mixmin.net>
+Subject: Re: Pinger problem
+Date: Thu, 10 Mar 2016 17:29:28 +0000
+From: Zax <admin@mixmin.net>
+References: <e1f44daf23ede5907671ac36392b3006@hoi-polloi.org> <3699120895e4d5d02dba5a40f732a05b@remailer.paranoici.org> <nbnpgu$hip$1@dont-email.me> <nbps17$v90$1@news.mixmin.net> <nbq1j8$u86$1@dont-email.me> <nbq4va$fid$1@news.mixmin.net> <nbq9hm$tfj$1@dont-email.me> <nbqbor$r6v$1@news.mixmin.net> <nbqhqr$pk4$1@dont-email.me> <nbs5to$rlh$1@news.mixmin.net> <nbs7jc$6es$1@dont-email.me> <nbs8eu$mh$1@news.mixmin.net>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!news.usenet.farm!..!..!not-for-mail
+Newsgroups: alt.privacy.anon-server
+Organization: Mixmin
+Injection-Date: Thu, 10 Mar 2016 17:29:28 -0000 (UTC)
+Injection-Info: news.mixmin.net; posting-host="2239eae434de56739c1624cdce699d81144148aa";
+User-Agent: slrn/pre1.0.3-6 (Linux)
+Lines: 116
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:281029
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+On Thu, 10 Mar 2016 10:47:24 -0600, Anonymous wrote in
+Message-Id: <nbs8eu$mh$1@news.mixmin.net>:
+
+>   Since I had success install echolot in user pinger before, I am 
+> returning to that route and try to find a way for echolot to execute 
+> mixmaster from the different user mix.
+
+This will probably cause you loads of problems as Echolot needs to write
+files into the ~/Mix directory.  If you split them under different user
+accounts, things will get complicated.  Maybe try going through things
+one step at a time.
+
+First of all, I'd suggest creating a global procmailrc file as
+/etc/procmailrc.  There are a number of settings you probably want to be
+common across all your user accounts and you can handle the exceptions
+(like echolot) later.
+
+/etc/procmailrc:
+#!/bin/bash
+
+SHELL=/bin/bash
+DROPPRIVS=yes
+PMDIR=$HOME/procmail
+DATE=`date +%Y%m%d`
+MAILDIR=${HOME}/Maildir/
+ORGMAIL=$MAILDIR
+DEFAULT=$ORGMAIL
+
+You might want to add some other settings in there later but that's a
+good foundation to build on.  Your mail will now be delivered to each
+user account in Maildir format.
+
+Now create your account for Echolot (doesn't matter what name you give
+it).
+
+Login as that user and create the basic Maildir folders:
+mkdir -p ~/Maildir/{cur,new,tmp}
+
+Create a procmail log directory:
+mkdir ~/procmail
+
+Create a procmailrc for this user:
+~/.procmailrc:
+LOGFILE=$PMDIR/$DATE
+VERBOSE=no
+
+This will log each delivery from procmail to that user's Maildir in a
+file called ~/procmail/20160310 (or whatever the date is)
+
+Now send the user a test message.  If all goes well, it will arrive in
+~/Maildir/new/
+
+You can also check your procmail logfile for any messages.
+
+Once that's sorted, install Mixmaster using your Echolot user account.
+Stick with the defaults and install it to ~/Mix.
+
+Now untar echolot-2.1.9 and then rename the directory to echolot:
+mv ~/echolot-2.1.9 ~/echolot
+
+Edit your previously created ~/.procmailrc file and add the following:
+#Default Recipe for Echolot
+:0
+$HOME/echolot/mail/
+
+Make sure you leave a blank line between these new lines and the
+existing lines.  As in:
+
+LOGFILE=$PMDIR/$DATE
+VERBOSE=no
+
+#Default Recipe for Echolot
+:0
+$HOME/echolot/mail/
+
+Send your Echolot user another email.  If all goes well, the mail will
+now arrive in ~/echolot/mail/new/.  If so, great, you've overridden the
+default mail location with the one Echolot wants.
+
+Now you can configure Echolot's pingd.conf file.
+Also edit the ~/echolot/tools/pingctl file and change the following two
+entries to match your configuration:
+USER=echolot
+BASEDIR="/home/echolot/echolot"
+
+Now you're ready to go and you can start Echolot with the command:
+~/echolot/tools/pingctl start
+
+Watch the pingd.log for any messages.
+
+Finally, add some remailers to your pinger.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2
+
+iQIcBAEBCAAGBQJW4a74AAoJEC3jHKG+Pvqnym0QALqg4kK/eraZP2/B8Nzgcme6
+v11CddbSZTDxsMNfImKPVWcn3WGkccHotjHdhV7bXhXjPcyUMQFQhqz+Mqf5uwGS
+KwnX45e1JjXn/uJq1yGFiyZXHcAyuyNtu/RmdRurMzEIYyBfhovbFoX01Ia6t8Yg
+hDapBPV+f7UScBY8BYGKjy+ZLQJX/rP+4NCFRCUC/m/+LRa4uuZn4KdN4TPfRRUX
+Jcz3WSO7Ji4UaEVH4uOOeMHl/tkcdmCMpmM2z5ESSbpC0CRAKXnk257xXQwqfvME
+OWnZIDiZ+ESJv5SRBztp9q7oYXW2yH8WIccV9ZPqMPpP3MnyZ4CLJbOpx7xleC/G
+C4p1VJuxVli+OB2M8a4+2JXv7GP8sD4VyJ8pIaNbUo6/4WnHgnri/8UvqWTwQNzX
+IXjJX8uquJbyqZZqNMwXdaBJA8VMpmFvHxVzV2ewF2I1gdsOd2rwcoXeHz8rJheL
+cvAINFfoE9kYCyjrfxjp0Fud8UK8GIGU4Kx+3naEmpMJEqtC3xr0FIY3sg8h6628
+wzCxmbo7BSHzKTtXBOzU5/4nCjHcGIo1yyrUy+AqVTm/BWS92cPyLc4KTthp57oW
+9bhbOu1xWtwGe9KgYjB1NifJ3h36p3LKZ8a+VzECSTfPFjg2Eb1jO/hUfCELv8HO
+4NI5KatTAyvB1Ol4ibJV
+=6b2J
+-----END PGP SIGNATURE-----
+
+-- 
+pub   1024D/228761E7 2003-06-04 Steven Crook <steve@mixmin.net>
+      Key fingerprint = 1CD9 95E1 E9CE 80D6 C885  B7EB B471 80D5 2287 61E7
+sub  4096R/BE3EFAA7  created: 2014-11-14  expires: 2016-11-13  usage: S

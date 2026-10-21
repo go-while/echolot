@@ -1,0 +1,27 @@
+> Finally, I can't seem to use my ISPs mail server, which does not 
+> require authentication, no matter the Sendmail setting.
+
+Boolean options can be yes/no or true/false.  The parser accepts either
+form.
+
+For relay through your ISP, I'd suggest trying:
+
+[Mail]
+Sendmail = no
+SMTPRelay = mail.isp.com
+
+The default port is 587 (submission) which can be changed with:
+SMTPPort = 25
+
+It will attempt to use TLS by default.  This can be disabled with:
+UseTLS = no
+
+If that doesn't work, please let me know any errors you're seeing and
+I'll tweak it.  There are such a variety of email configurations, it's
+hard for me to test them all.
+
+There are a couple of example configs in the repository, under the
+examples directory.   I appreciate that more of them and better
+documentation is required.
+
+-----BEGIN PGP SIGNATURE-----

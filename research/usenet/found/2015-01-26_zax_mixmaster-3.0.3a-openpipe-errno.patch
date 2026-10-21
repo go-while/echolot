@@ -1,0 +1,33 @@
+
+Apologies for following up to such an old message but the thread is
+relevant.  I've made some slight modifications to the Mixmaster source
+to try and isolate why opening a pipe to sendmail suddenly fails.  The
+change only consists of recording errno and logging it in the message
+when the open fails.
+
+diff --git a/Src/util.c b/Src/util.c
+index 627b7d5..48f971c 100644
+- --- a/Src/util.c
++++ b/Src/util.c
+@@ -151,8 +151,10 @@ FILE *openpipe(const char *prog)
+   p = _popen(prog, "w");
+ #endif /* _MSC */
+
+- -  if (p == NULL)
+- -    errlog(ERRORMSG, "Unable to open pipe to %s\n", prog);
++  if (p == NULL) {
++    int errpipe = errno;
++    errlog(ERRORMSG, "Unable to open pipe to %s: %s\n", prog, strerror(errpipe));
++  }
+   return p;
+ }
+
+diff --git a/Src/version.h b/Src/version.h
+index ea55419..ac3e16e 100644
+- --- a/Src/version.h
++++ b/Src/version.h
+@@ -1 +1 @@
+- -#define VERSION "3.0.3a"
++#define VERSION "3.0.3a-debug"
+
+

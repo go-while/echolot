@@ -1,0 +1,45 @@
+
+The source can be viewed here:-
+https://github.com/crooks/yamn
+
+Windows users can download a binary from:-
+http://www.mixmin.net/yamn.exe
+
+
+To test it........
+
+Create a directory (E.g. C:\yamn)
+Download the exe to this directory
+Create a yamn.cfg file with these basic options:-
+
+[Mail]
+SMTPRelay = your.mail.server
+smtpport = 25
+smtpusername = your.mail.id
+smtppassword = your.mail.password
+
+Download:-
+http://www.mixmin.net/yamn/pubring.mix
+http://www.mixmin.net/yamn/mlist2.txt
+
+Create a message file (E.g. msg.txt) in this format:-
+- -=-=-=-=-
+From: your.email
+To: recipient.email
+Subject: something
+
+Content goes here
+- -=-=-=-=-
+
+(Don't include the cutmarks)
+
+Send the message with a command such as:-
+yamn.exe --mail --chain="*,*" msg.txt
+Include other mixmaster directives as you desire.  Most work, some won't
+be recognized.
+
+Enjoy, but BEWARE!  This is very much for testing purposes.  The servers
+are configured with zero latency and send 100% of the pool every minute.
+They also reside on a single machine which means I could trace a message
+from source to destination.  I'll also probably break compatibility
+numerous times before it reaches a stable state and messages may

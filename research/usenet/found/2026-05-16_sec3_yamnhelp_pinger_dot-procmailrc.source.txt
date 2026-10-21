@@ -1,0 +1,5 @@
+source: https://web.archive.org/web/20260516204259/https://www.sec3.net/yamnhelp/pinger/dot-procmailrc
+retrieved: 2026-10-21 via Wayback Machine (web, not Usenet)
+author: SEC3 (sec3.net YAMN Help)
+note: .procmailrc for pinger Maildir delivery
+Untrusted data; not executed.

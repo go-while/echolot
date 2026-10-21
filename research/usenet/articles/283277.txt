@@ -1,0 +1,129 @@
+Message-ID: <slrnnm4ns7.1iv.admin@fleegle.mixmin.net>
+Subject: Re: When do remailers change out other remailer keys?
+Date: Thu, 16 Jun 2016 08:12:55 +0000
+From: Zax <admin@mixmin.net>
+References: <slrnnlsru5.1iv.admin@fleegle.mixmin.net> <57f7fce0138bae950a4871349d427301@remailer.privacy.at> <slrnnlvlim.1iv.admin@fleegle.mixmin.net> <53643e8a813cde3d564e9e2293224e80@remailer.org.uk>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!news.usenet.farm!..!..!not-for-mail
+Newsgroups: alt.privacy.anon-server
+Organization: Mixmin
+Injection-Date: Thu, 16 Jun 2016 08:12:55 -0000 (UTC)
+Injection-Info: news.mixmin.net; posting-host="3c6585416d7ebf917c934738efeed135f4159c9d";
+User-Agent: slrn/pre1.0.3-10 (Linux)
+Lines: 114
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:283277
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+On Thu, 16 Jun 2016 07:53:44 +0100 (BST), Nathan Hale wrote in
+Message-Id: <53643e8a813cde3d564e9e2293224e80@remailer.org.uk>:
+
+> In article <slrnnlvlim.1iv.admin@fleegle.mixmin.net>
+> Zax <admin@mixmin.net> wrote:
+>>
+>> -----BEGIN PGP SIGNED MESSAGE-----
+>> Hash: SHA256
+>>
+>> On Mon, 13 Jun 2016 15:40:39 +0200 (CEST), Anonymous Remailer (austria) wrote in
+>> Message-Id: <57f7fce0138bae950a4871349d427301@remailer.privacy.at>:
+>>
+>> >
+>> >> -----BEGIN PGP SIGNED MESSAGE-----
+>> >> Hash: SHA256
+>> >>
+>> >> On Sun, 12 Jun 2016 22:19:11 +0000 (UTC), Anonymous wrote in
+>> >> Message-Id: <a097cd2198a26720039426ec4dd4dde0@remailer.paranoici.org>:
+>> >>
+>> >>
+>> >>>   In every thesaurus, there is a conf column for each remailer.  In
+>> >>>   each of those files, each remailer has a SUPPORTED MIXMASTER (TYPE
+>> >>>   II) REMAILERS list.  When does each remailer update the other
+>> >>>   remailers key in this file on their server?  I would think that each
+>> >>>   remailer would check daily for new keys and update their list, but I
+>> >>>   have seen that this is not happening.  Do they wait until the old
+>> >>>   key expires before updating their list?
+>> >>
+>> >> The supported remailers list contains all the remailers listed on the
+>> >> pubring that remailer is using.  It doesn't validate them or collect new
+>> >> keys, it expects the file pubring file to be maintained by external
+>> >> means, such as a pinger.
+>> >
+>> >   I guess the question needs to be, when do the pingers update their
+>> >   key list?  I would think that each pinger would check daily for new
+>> >   keys and update their list if there is a new one available.
+>> Defaults are: -
+>> Echolot rebuilds its key list (pubring.mix) every 8 hours.
+>> Key requests (remailer-key) are sent daily to each unique address.
+>>
+>>
+>> > Do pingers just wait until they find a key has expired and then update
+>> > the their pinger with the new key?
+>> I don't believe Echolot checks key expiry dates.  It sends remailer-key
+>> requests to all known addresses.  If none of the responses contain a
+>> specific key for (default) 5 days, that key is expired.
+>>
+>> > What happens between the time that a key expires and the pinger
+>> > updating it?  I am guessing that remailers just keep using the old
+>> > expired key and that this is the purppose of the grace period
+>> > (KEYGRACEPERIOD).
+>> This is getting into the realms of why stats plummet every key rotation.
+>> Echolot recognizes remailers by keyid so there can be more than one
+>> keyid associated with any given remailer name/address.
+>>
+>> If more than one keyid is associated with a remailer, the stats results
+>> are a combination of all the keyids pinged.  If one keyid returns 100%
+>> and the other 0%, the stats will drop to 50%.  This is exactly what
+>> happens at rotation time.
+>>
+>> Just before key rotation, Echolot gets a response from a remailer-key
+>> request showing the key that's about to expire.  From that time, it will
+>> ping that key for (default) 5 days even though the remailer never
+>> advertises it again.  Echolot *thinks* its pinging that key, but
+>> Mixmaster doesn't actually send its pings due to the expired key.
+>> Echolot's results for that key drop to 0%.  Meanwhile the remailer has
+>> generated and advertised a new keyid.  Echolot picks this up and pings
+>> that key too.  Hopefully getting 100% returns.  For 5 days, Echolot
+>> pings both keys, getting 0% from one and 100% from the other, making 50%
+>> uptime.  After 5 days, the expired key is considered dead.  Echolot
+>> recalculates its stats based on just the remaining keyid and uptime
+>> stats return to 100%.
+>
+> That really seems like an inefficient process. Isn't there any way 
+> to get the pingers to do it differently, so that the 5 days of 
+> really bad stats that don't reflect reality don't happen anymore?
+
+- From the pingd.conf manpage:-
+
+expire_keys [seconds]
+    After how long to expire received keys if they were not
+    updated by remailer-key replies.
+
+        Default: 'expire_keys' =>  5*24*60*60, # 5 days
+        Example: 'expire_keys' =>  7*24*60*60, # 1 week
+
+Changing this to a lower value would reduce the impact of key rollover.
+It doesn't explain what happens though as the remailer should honour the
+expired key long after it stops advertising it.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2
+
+iQIcBAEBCAAGBQJXYl+FAAoJEC3jHKG+PvqncNEP/RLqvb6ZC3DpdpcK6uQEDPvH
+SNAs/sWUTSfjyFsM5vfr/ZXbef6iFGseimRatvPTjZnxp8oyaa/4U1d2pM5ZcjYf
+eDBhI3EZraHBoxFpXwrh+79bEU/UeiiCXlSi6W2amFU+lN/YnvtptO9amjx5V+34
+DAmMxDHk2XjJ6oJwhJ4S6l+zDlCxcrw+8PR9GpJI540Jy7wfEiCcpP6v/kSmgH/l
+1T6Ks0CeWLoLyPYLXclXIJd9uqhYBNhOTcozjtY+8f1MHkV9O2iDF5Vp6sEf9L/I
+HudJAko+ZYt5eYy6RuxVTuSKILvsgQHEHfWMcLyXaC3HpJYUKaf73gr6WeY+gjGD
+MdydOqNLsaq8AAetH/59kIwTzFgXu98V2WBmDB+s3m9cC/kwT/AUq2nUCBQ6Yh6U
+5FtpihtEYGq44ZwxZrLKp0iT8x8ZVpgfJ4SG8cRVAYuJQd22G7V2GSDyN9u7aCP3
+zMDLWvpCLc9Bg0jM7KlUFWqc60GJ/MKNCa4qrULgDh4XpWVCG+mzLew7dyzZnYDa
+5RZFH35SpBhGGUeHnvPNFySC0DHczqmw4bw2+4n8Cp0lKNn4TPhRReg30bA+L7am
+L19XUK8Zq7ZmTP15RHbO+vwMN91lPhI2S7QoxpHHw9u27/7vWucqD900vvKf70db
+0z03181l/XEZ0K19MRgi
+=a2HG
+-----END PGP SIGNATURE-----
+
+-- 
+pub   1024D/228761E7 2003-06-04 Steven Crook <steve@mixmin.net>
+      Key fingerprint = 1CD9 95E1 E9CE 80D6 C885  B7EB B471 80D5 2287 61E7
+sub  4096R/BE3EFAA7  created: 2014-11-14  expires: 2016-11-13  usage: S

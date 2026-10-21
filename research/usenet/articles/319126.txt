@@ -1,0 +1,43 @@
+Message-ID: <JXe7K.410080$Lc1.23025@fx12.ams1>
+Subject: Ping Victor
+Date: Mon, 18 Apr 2022 10:53:28 -0400
+From: SEC3 <admin@sec3.net>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!not-for-mail
+Mime-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Thunderbird/91.7.0
+Newsgroups: alt.privacy.anon-server
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+Lines: 26
+X-Complaints-To: abuse@blocknews.net
+Nntp-Posting-Date: Mon, 18 Apr 2022 14:53:29 UTC
+Organization: blocknews - www.blocknews.net
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:319126
+
+Something is amiss at your Victor YAMN remailer.
+
+Well, actually the remailer itself is working okay. It is answering to 
+remailer-XXX requests. And it appears to be delivering remailer messages.
+
+But at the same time it has fallen badly on all stats pages. Even at 
+your own pinger:
+
+<https://echolot.virebent.art/mlist.txt>
+
+Victor seems to be having trouble returning ping messages to Echolot 
+pinger services.
+
+Pinger messages have email addresses that look like this:
+
+echolot+ping=1583008800=4c84ad53@mixmin.net
+
+Ensure your mail server can handle "+" symbols in email addresses. In 
+Postfix you want this line in your /etc/postfix/main.cf:
+
+recipient_delimiter = +
+
+-- 
+SEC3
+
+YAMN Tutorials - https://sec3.net/yamnhelp

@@ -1,0 +1,71 @@
+Message-ID: <slrnndtnhn.e31.admin@fleegle.mixmin.net>
+Subject: Re: Pinger problem
+Date: Tue, 08 Mar 2016 14:14:15 +0000
+From: Zax <admin@mixmin.net>
+References: <50bfebcc99928b4fbfcbbf2ec07f4aed@remailer.cpunk.us>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!news.usenet.farm!..!..!not-for-mail
+Newsgroups: alt.privacy.anon-server
+Organization: Mixmin
+Injection-Date: Tue, 8 Mar 2016 14:14:15 -0000 (UTC)
+Injection-Info: news.mixmin.net; posting-host="8a108a19f9f97a6839357220376256d04457a645";
+User-Agent: slrn/pre1.0.3-6 (Linux)
+Lines: 56
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:280911
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+On Mon,  7 Mar 2016 21:08:06 -0500 (EST), Jack Ryan wrote in
+Message-Id: <50bfebcc99928b4fbfcbbf2ec07f4aed@remailer.cpunk.us>:
+
+>   Does anyone know what might be causing mixmaster to not be executable?
+>
+> ./pingd --detach start
+> tail -f pingd.log
+>
+> Mar 07 16:07:21 [DEBUG] Detaching.
+> Mar 07 16:07:21 [INFO] Starting up.
+> Mar 07 16:07:21 [DEBUG] zZzZZzz.
+> Mar 07 16:09:23 [INFO] Got SIGTERM. scheduling exit.
+> Mar 07 16:09:23 [DEBUG] Running exit (was scheduled for 1457388563 seconds ago).
+> Mar 07 16:09:23 [INFO] Shutdown complete.
+> Mar 07 16:13:07 [WARN] mixmaster binary /home/mix/Mix/mixmaster does not exist or is not executeable
+> Mar 07 16:13:07 [DEBUG] Detaching.
+> Mar 07 16:13:07 [INFO] Starting up.
+> Mar 07 16:13:07 [DEBUG] zZzZZzz.
+
+You probably want to split out Mixmaster the client/remailer from
+Mixmaster required to send Echolot pings.
+
+Have 2 user accounts: mix and echolot.  Install Mixmaster to:
+/home/mix/Mix
+/home/echolot/Mix
+
+Put Echolot in:
+/home/echolot/echolot
+
+Configure echolot to use its own copy of Mixmaster:
+'mixmaster'        => '/home/echolot/Mix/mixmaster',
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2
+
+iQIcBAEBCAAGBQJW3t41AAoJEC3jHKG+PvqnHeIP/0lAqoY6Xsq7/CfK2hyzKVLo
+hIQ4Lcn16DfdYMFiSvag3uFolXLwOCQR3LKiCdVqBIiWVtEoxKCgWA0cbU5Okvr8
+KFm0cdDhfI7EbC8LrWXh89KdeDtAnEF8xRDKg8+zlXnoMif3uCspfo1uYHSELTh+
+DgURDHX6U3TEi1/WcH0YptW4x/aAu9pW6E65huveaCUrqHDxTGhksk86MFJrYiTQ
+NUEtHmd9sUncCGUdO13I/AAe+tsfe3jIRfsTVfqS/InkWam2S6eVDLeHkgwuMYhJ
+EMJJoC6cYkNMtsbpb16Q0qwt2/QLY4hnri+Mq8rF92RgqkTKg00hA9Mo5qpv1cYH
+KcofkOSu8jg4E1vo3xh1nkinKVauBsJMBlHw25itc2Bv7asu9F2uDsM84GVz6Pq/
+BSQzasnmM1bw8aFe/si/87TZNZ4EiRsuTnn7aM49Quq8nVH2CDNBMG7Luo4kOHcQ
+xM59qwX0Zst9RH36xzwMVg69XoBrCA/4xRULha1AiMYieN5q6xyxfpGe442+J0YL
+HwxOHBRt45PTBxLvcP/Vp/8MoutsZlNshoOp9Uu79/PHbaogLD2usPIhzr8q/dOP
+2RwSo2CRrR7SlPReAEOzPkviPCTE8ZRT1VP1ylVWF+MaakXYsW0J+gjbmwFXNhTw
+dfx7DS66pozPkz85/FeA
+=cYUg
+-----END PGP SIGNATURE-----
+
+-- 
+pub   1024D/228761E7 2003-06-04 Steven Crook <steve@mixmin.net>
+      Key fingerprint = 1CD9 95E1 E9CE 80D6 C885  B7EB B471 80D5 2287 61E7
+sub  4096R/BE3EFAA7  created: 2014-11-14  expires: 2016-11-13  usage: S

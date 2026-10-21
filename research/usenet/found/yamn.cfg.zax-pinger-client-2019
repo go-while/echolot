@@ -1,0 +1,12 @@
+[Mail]
+SMTPRelay = fleegle.mixmin.net
+Pipe = "/usr/sbin/sendmail -f echolot-yamn@fleegle.mixmin.net -t"
+
+[Stats]
+UseExpired = true
+
+[Files]
+Pubring = "/home/echolot-yamn/yamn/pubring.mix"
+
+[Urls]
+Fetch = false

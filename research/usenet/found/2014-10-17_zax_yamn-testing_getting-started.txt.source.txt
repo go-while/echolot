@@ -1,0 +1,8 @@
+message-id: <slrnm428j5.fi7.admin@snorky.mixmin.net>
+date: Fri, 17 Oct 2014 14:06:29 +0000
+from: Zax <admin@mixmin.net>
+subject: YAMN Testing
+newsgroups: alt.privacy.anon-server
+article-file: articles/apas2014/270749.txt
+lines: 18-49
+note: YAMN Testing: getting started, sample cfg yamn.cfg.sample

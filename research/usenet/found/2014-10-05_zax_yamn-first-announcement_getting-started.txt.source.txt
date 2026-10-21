@@ -1,0 +1,8 @@
+message-id: <slrnm32lsf.veq.admin@snorky.mixmin.net>
+date: Sun, 05 Oct 2014 14:37:03 +0000
+from: Zax <admin@mixmin.net>
+subject: Yet another Mix Net
+newsgroups: alt.privacy.anon-server
+article-file: articles/apas2014/270510.txt
+lines: 38-82
+note: First yamn announcement (Windows client quick start, minimal yamn.cfg [Mail], pubring.mix/mlist2.txt from mixmin pinger)

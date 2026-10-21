@@ -1,0 +1,8 @@
+message-id: <KimIw.127009$cz5.80346@fe13.am1>
+date: Sat, 28 Feb 2015 11:47:46 -0500
+from: Bergman Admin <nobody@bergman.delphy.org>
+subject: Re: echolot-2.1.9 pingd.conf example
+newsgroups: alt.privacy.anon-server
+article-file: articles/apas2014/272630.txt
+lines: 22-43
+note: Echolot 2.1.9 on Debian: pingctl init script notes; links http://bergman.delphy.org/pingd.conf (dead)

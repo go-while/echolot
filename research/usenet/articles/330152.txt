@@ -1,0 +1,72 @@
+Message-ID: <184fc0510fa397c3$84498$591474$802601b3@news.usenetexpress.com>
+Subject: Re: PING mixmin remops
+Date: Sun, 6 Jul 2025 15:30:34 -0400
+From: SEC3 <admin@sec3.net>
+References: <20250706.173821.b1fd6ee6@yamn.paranoici.org>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!ygg-srl.newsdeef.eu!srl.newsdeef.eu!weretis.net!feeder8.news.weretis.net!feeder2.feed.ams11.usenet.farm!feed.usenet.farm!peer02.ams4!peer.am4.highwinds-media.com!peer05.iad!feed-me.highwinds-media.com!news.highwinds-media.com!feeder.usenetexpress.com!tr1.iad1.usenetexpress.com!news.usenetexpress.com!not-for-mail
+Mime-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Newsgroups: alt.privacy.anon-server
+Content-Language: en-US
+In-Reply-To: <20250706.173821.b1fd6ee6@yamn.paranoici.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+Lines: 52
+Nntp-Posting-Date: Sun, 06 Jul 2025 19:30:34 +0000
+X-Complaints-To: abuse@usenetexpress.com
+Organization: UsenetExpress - www.usenetexpress.com
+X-Received-Bytes: 2484
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:330152
+
+On 7/6/25 13:38, Anonymous wrote:
+> The following YAMN keys are expired
+> 
+> 
+> Stats-Version: 2.0
+> Generated: Sun 06 Jul 2025 15:05:00 GMT
+> 
+> yamn yamn@mixmin.net 35d77a6617d8bae60e7f51e49408ee25 4:0.2.7 E
+> 2025-06-30 2025-07-05
+> 
+> -----Begin Mix Key-----
+> 35d77a6617d8bae60e7f51e49408ee25
+> 7a661e0308e4812c0ac3686fa890033d4f4bb7607499f972b564f679d7d8816d
+> -----End Mix Key-----
+> 
+> yamn2 yamn2@mixmin.net 83201a48096fadbbb6119cd84d3ed070 4:0.2.7 E
+> 2025-06-30 2025-07-05
+> 
+> -----Begin Mix Key-----
+> 83201a48096fadbbb6119cd84d3ed070
+> 43f8ecf8bf3bbe7b08aad707f30df41d90d7c1beb3e65f9759bea84df03b8d37
+> -----End Mix Key-----
+> 
+> yamn3 yamn3@mixmin.net a2480bc780c1ee1cf075320271d056c7 4:0.2.7 E
+> 2025-06-30 2025-07-05
+> 
+> -----Begin Mix Key-----
+> a2480bc780c1ee1cf075320271d056c7
+> 8cdc1077a93242d2731838a1f13563471df38e8d163619e9ec993876dd0ed276
+> -----End Mix Key-----
+> 
+
+This happens because Zax's Yamn remailer keys have a very short
+lifetime (5 days). That doesn't allow them much overlap time between
+old key and new key. But the real problem is Echolot. It only
+updates it's pubring.mix file every 8 hours.
+
+# pingd.conf file
+Default: 'buildkeys' => 8*60*60, # every 8 hours
+
+So during those 8 hours you may occasionally see old Yamn remailer
+keys that have not yet been updated on the pinger side.
+
+At my Barnish Yamn Pinger I have just changed the 8 hours to
+1 hour to accomodate Zax's short-lived keys. Hopefully that
+will resolve the situation in the future. At least for Barnish
+pinger users.
+
+-- 
+SEC3
+
+YAMN Help Tutorial - https://www.sec3.net/yamnhelp/

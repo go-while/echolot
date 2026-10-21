@@ -1,0 +1,39 @@
+Message-ID: <AUf1L.595617$G_96.278766@fx13.ams1>
+Subject: ATTN Zax
+Date: Tue, 11 Oct 2022 11:24:15 -0400
+From: SEC3 <admin@sec3.net>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!not-for-mail
+Newsgroups: alt.privacy.anon-server
+X-Mozilla-News-Host: news://eunews.blocknews.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0 SeaMonkey/2.53.14
+Mime-Version: 1.0
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+Lines: 22
+X-Complaints-To: abuse@blocknews.net
+Nntp-Posting-Date: Tue, 11 Oct 2022 15:24:16 UTC
+Organization: blocknews - www.blocknews.net
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:320260
+
+I know you don't read this group regularly but I am trying to contact 
+you here as a last resort since emails to you are not being answered. I 
+tried
+
+steve at mixmin.net
+admin at mixmin.net
+steve at stmellion.org
+
+Your Yamn pinger is missing  new remailer yamn@micromix.org Please add it.
+
+Also, consider adjusting your Yamn pinger's pingd.conf:
+
+# 'reliable_auto_add_min'     => 6,
+'reliable_auto_add_min'     => 2,
+
+There are so few YAMN remailers now. Expecting 6 of them to be carrying 
+a new remailer is not realistic anymore.
+
+-- 
+SEC3
+
+YAMN Tutorials - https://sec3.net/yamnhelp

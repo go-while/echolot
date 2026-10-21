@@ -1,0 +1,22 @@
+On 28/02/15 07:51 AM, Quintus Clemens wrote:
+>   Will someone please put out a copy of their echolot-2.1.9 
+> pingd.conf file for an example?.
+
+Here is mine: http://bergman.delphy.org/pingd.conf
+
+If you are installing Echolot on Debian here are some installation notes I
+made for myself:
+
+In addition to the setup instructions in the README file in the echolot
+tarball it is also necessary to
+
+1) manually create the file /etc/init.d/pingctl
+See the example file /tools/pingctl for a sample.
+
+2) sudo chmod +x /etc/init.d/pingctl
+
+3) sudo update-rc.d pingctl defaults
+
+NOTE: Doing #3 is crucial. Otherwise the Echolot script will run only one
+time, but it won't run again after a reboot or a system crash.
+

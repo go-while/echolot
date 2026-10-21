@@ -1,0 +1,12 @@
+SHELL=/bin/bash
+PMDIR=$HOME/procmail
+COMSAT=OFF
+# LOGFILE=/dev/null
+LOGFILE=$PMDIR/procmail.log
+# Set on when debugging #
+# VERBOSE=on
+VERBOSE=off
+MAILDIR=$HOME/echolot/mail
+
+:0
+$HOME/echolot/mail/

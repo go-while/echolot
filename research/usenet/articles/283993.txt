@@ -1,0 +1,46 @@
+Message-ID: <1e6849be3c1d750b2c6f874d32ff16ad@hoi-polloi.org>
+Subject: Re: Attn elvis
+Date: Sat, 6 Aug 2016 16:34:33 +0200
+From: Anonymous <anonymous@hoi-polloi.org>
+References: <slrnnqbdnv.1iv.admin@fleegle.mixmin.net>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!news.usenet.farm!..!..!not-for-mail
+Newsgroups: alt.privacy.anon-server
+Organization: dizum.com - The Internet Problem Provider
+X-Abuse: abuse@dizum.com
+Injection-Info: sewer.dizum.com - 194.109.206.211
+Lines: 33
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:283993
+
+> On Sat, 6 Aug 2016 01:08:09 -0400, SEC3 wrote in
+> Message-Id: <no3rbq$54b$1@solani.org>:
+> 
+> 
+> 
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAABAAE=
+>> -----End Mix Key-----
+> 
+> Echolot doesn't match the "=" sign on the end of the key block.  It's
+> the Base64 padding character and, in the case of 1024 and 4096 bit keys,
+> there is no padding.
+> 
+> To fix this, Echolot needs a small patch:
+> 
+> --- Conf.pm     2014-10-23 16:51:19.000000000 +0100
+> +++ newConf.pm  2016-08-06 10:59:04.197118471 +0100
+> @@ -285,7 +285,7 @@
+> my @mix_keys = ($reply =~ /^-----Begin \s Mix \s Key-----\r?\n
+> \d+\r?\n
+> -----End \s Mix \s Key-----$/xmg );
+> for (@mix_confs) {
+> my ($nick, $address, $keyid, $version, $caps, $created, $expires) = /^
+> 
+> 
+  So what is this supposed to look like with elvis' addition?

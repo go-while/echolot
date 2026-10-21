@@ -1,0 +1,174 @@
+Message-ID: <3699120895e4d5d02dba5a40f732a05b@remailer.paranoici.org>
+Subject: Re: Pinger problem
+Date: Tue, 08 Mar 2016 23:25:11 +0000
+From: Anonymous <nobody@remailer.paranoici.org>
+References: <e1f44daf23ede5907671ac36392b3006@hoi-polloi.org>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!news.usenet.farm!..!..!not-for-mail
+Comments: This message did not originate from the Sender address above.
+ It was remailed automatically by anonymizing remailer software.
+ Please report problems or inappropriate use to the
+ remailer administrator at <abuse@remailer.paranoici.org>.
+Newsgroups: alt.privacy.anon-server
+Injection-Info: mail2news.mixmin.net; mail-complaints-to=abuse@mixmin.net
+Lines: 159
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:280950
+
+>> -----BEGIN PGP SIGNED MESSAGE-----
+>> Hash: SHA256
+>>
+>> On Mon,  7 Mar 2016 21:08:06 -0500 (EST), Jack Ryan wrote in
+>> Message-Id: <50bfebcc99928b4fbfcbbf2ec07f4aed@remailer.cpunk.us>:
+>>
+>>
+>>>   Does anyone know what might be causing mixmaster to not be executable?
+>>>
+>>> ./pingd --detach start
+>>> tail -f pingd.log
+>>>
+>>
+>> You probably want to split out Mixmaster the client/remailer from
+>> Mixmaster required to send Echolot pings.
+>>
+>> Have 2 user accounts: mix and echolot.  Install Mixmaster to:
+>> /home/mix/Mix
+>> /home/echolot/Mix
+>>
+>> Put Echolot in:
+>> /home/echolot/echolot
+>>
+>> Configure echolot to use its own copy of Mixmaster:
+>> 'mixmaster'        => '/home/echolot/Mix/mixmaster',
+> 
+> That is the way that some others are doing it and suggested.  When I tried to install the merkinmuffley mixmaster, it insisted on being installed in /mix/Mix.  I tried to install mixmaster in /home/echolot/ (I actually used /home/pinger/), but it got compile errors.
+> 
+> What I finally did was install echolot into /mix along with /mix/Mix/mixmaster that was already there.  Echolot is running correctly now.  /mix/Mix/mixmaster is no longer running as a remailer.
+
+  Now that echolot if finding mixmaster and starting properly, echolot is updating the stats/txt pages every 5 minutes, but there are no remailers or stats listed in them.  When I ran echolot  from user pinger as the instructions said, I at least got a list of the remailers in the output.  Below is my config.
+
+#
+# This file is part of Echolot - a Pinger for anonymous remailers.
+#
+# Copyright (c) 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2012, 2014 Peter Palfrader <peter@palfrader.org>
+#
+# This program is free software. you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+
+
+# see man pingd.conf(5) for a list of all available configuration options.
+# There are a lot more than those listed in this sample.
+
+$CONFIG = {
+  # A short name for your site/pinger. Is used in the statistics produced.
+        'sitename'         => 'allpings',
+
+  # The local part of the pinger's email address
+  # In "pinger@remailer.example.com" the localpart is "pinger".
+        'my_localpart'     => 'echolot',
+
+  # The domain part (FQDN) of the pinger's email address.
+  # In "pinger@remailer.example.com" the domain part is "remailer.example.com".
+        'my_domain'        => 'allpingers.net',
+
+  # The email address of the human operator that runs this pinger.
+        'operator_address' => 'pinger-admin@allpingers.net',
+
+  # Name of the mixmaster executable. If it is not in your PATH make
+  # sure to include path information.
+        'mixhome'          => '/home/mix/Mix',
+        'mixmaster'        => '/home/mix/Mix/mixmaster',
+
+  # The recipient_delimiter parameter specifies the separator between user names
+  # and address extensions (user+foo).
+  #
+  # If it is an empty string Echolot does not make use of user defined mailboxes
+  # but rather encodes the message type et al in a Comment/Realname part of an
+  # address.
+  #
+  # The use of recipient_delimiter is strongly recommended if your MTA setup
+  # supports it.
+        'recipient_delimiter'    => '+',
+        #'recipient_delimiter'    => '',
+
+  # Also build separate rlists with data from only DSA pings, only RSA
+  # pings and only unencrypted pings.
+        'separate_rlists'  => 0,
+
+  # Build a combined list of all different stats too. While this is no
+  # standard format it is nice to read for a human eye.
+        'combined_list'    => 0,
+
+  # some of Sec3 personal settings here
+        'fromlines'                 => 1,
+        'processmail'               => 10*60,
+        'save_errormails'           => 1,
+        'metadata_backup_count'     => 6,
+
+  # Log file and level (valid levels are debug, info, notice, warning, error,
+  # critical, alert, emergency)
+        'logfile'         => 'pingd.log',
+        #'loglevel'        => 'info',
+        'loglevel'        => 'debug',
+
+  # GPG path
+        'gnupghome'    => '/home/mix/.gnupg',
+        'gnupg'        => '/usr/bin/gpg',
+
+          };
+1;
+
+# vim:set syntax=perl:
+
+
+-------------------------------------------
+
+A few log records
+
+Mar 08 15:32:46 [DEBUG] Detaching.
+Mar 08 15:32:46 [INFO] Starting up.
+Mar 08 15:32:46 [DEBUG] zZzZZzz.
+Mar 08 15:35:00 [DEBUG] Running ping (was scheduled for 0 seconds ago).
+Mar 08 15:35:00 [DEBUG] Running chainping (was scheduled for 0 seconds ago).
+Mar 08 15:35:00 [DEBUG] Running buildstats (was scheduled for 0 seconds ago).
+Mar 08 15:35:00 [DEBUG] Broken Chains cpunk need generating.
+Mar 08 15:35:00 [DEBUG] intensive care cpunk: (none)
+Mar 08 15:35:00 [DEBUG] Broken Chains mix need generating.
+Mar 08 15:35:00 [DEBUG] intensive care mix: (none)
+Mar 08 15:35:00 [DEBUG] Running getkeyconf (was scheduled for 0 seconds ago).
+Mar 08 15:35:00 [DEBUG] Sending adminkey request to mix@anemone.mooo.com.
+Mar 08 15:35:00 [DEBUG] zZzZZzz.
+Mar 08 15:40:00 [DEBUG] Running processmail (was scheduled for 0 seconds ago).
+Mar 08 15:40:00 [DEBUG] Running ping (was scheduled for 0 seconds ago).
+Mar 08 15:40:00 [DEBUG] Running chainping (was scheduled for 0 seconds ago).
+Mar 08 15:40:00 [DEBUG] Running buildstats (was scheduled for 0 seconds ago).
+Mar 08 15:40:00 [DEBUG] Broken Chains cpunk are up to date.
+Mar 08 15:40:00 [DEBUG] Broken Chains mix are up to date.
+Mar 08 15:40:00 [DEBUG] Running getkeyconf (was scheduled for 0 seconds ago).
+Mar 08 15:40:00 [DEBUG] zZzZZzz.
+Mar 08 15:45:00 [DEBUG] Running ping (was scheduled for 0 seconds ago).
+Mar 08 15:45:00 [DEBUG] Running chainping (was scheduled for 0 seconds ago).
+Mar 08 15:45:00 [DEBUG] Running buildstats (was scheduled for 0 seconds ago).
+Mar 08 15:45:00 [DEBUG] Broken Chains cpunk are up to date.
+Mar 08 15:45:00 [DEBUG] Broken Chains mix are up to date.
+Mar 08 15:45:00 [DEBUG] Running getkeyconf (was scheduled for 0 seconds ago).
+Mar 08 15:45:00 [DEBUG] Sending stats request to banana@mixmaster.mixmin.net.
+Mar 08 15:45:00 [DEBUG] Sending adminkey request to mixmaster@remailer.privacy.at.
+Mar 08 15:45:00 [DEBUG] zZzZZzz.
+Mar 08 15:50:00 [DEBUG] Running processmail (was scheduled for 0 seconds ago).
+Mar 08 15:50:00 [DEBUG] Running ping (was scheduled for 0 seconds ago).
+Mar 08 15:50:00 [DEBUG] Running chainping (was scheduled for 0 seconds ago).
+Mar 08 15:50:00 [DEBUG] Running buildstats (was scheduled for 0 seconds ago).
+Mar 08 15:50:00 [DEBUG] Broken Chains cpunk are up to date.
+Mar 08 15:50:00 [DEBUG] Broken Chains mix are up to date.
+Mar 08 15:50:00 [DEBUG] Running getkeyconf (was scheduled for 0 seconds ago).
+Mar 08 15:50:00 [DEBUG] zZzZZzz.

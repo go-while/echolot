@@ -1,0 +1,8 @@
+message-id: <slrnmh5rv9.h7m.admin@snorky.mixmin.net>
+date: Wed, 25 Mar 2015 17:27:05 +0000
+from: Zax <admin@mixmin.net>
+subject: Re: Yamn Update
+newsgroups: alt.privacy.anon-server
+article-file: articles/apas2014/273117.txt
+lines: 20-42
+note: MXRelay introduced; pool delete on fail

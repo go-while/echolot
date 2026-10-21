@@ -1,0 +1,32 @@
+As annouced a few weeks ago, I'd very much appreciate further testing of
+yamn (Yet Another Mix Net).  There have been quite a few changes, such
+as support for randhops, dummy message injection and various bugfixes.
+Client and remailer modes work on Posix and Windows platforms.
+
+Windows binary:
+http://www.mixmin.net/yamn.exe
+
+Repository:
+https://github.com/crooks/yamn
+
+Pinger stats:
+http://www.mixmin.net/yamn/
+
+Getting Started:
+Create a directory (E.g. mkdir yamn)
+Download the binary (or compile from source)
+Grab a pubring.mix and mlist2.txt from the Pinger
+Download a sample config file
+(https://raw.githubusercontent.com/crooks/yamn/master/yamn.cfg.sample)
+Rename it to yamn.cfg and tweak to suit your environment.
+
+Create a message (e.g. msg.txt):
+ From: nobody@nowhere.invalid
+ To: recipient@somewhere.invalid
+ Subject: Testing
+
+ Hello World!
+
+Send the message:
+yamn --mail msg.txt
+

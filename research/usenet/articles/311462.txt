@@ -1,0 +1,47 @@
+Message-ID: <427dH.312474$865.138236@fx19.ams1>
+Subject: Swissmix Yamn remailer
+Date: Wed, 30 Sep 2020 17:47:43 -0400
+From: SEC3 <noreply@sec3.net>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!not-for-mail
+Newsgroups: alt.privacy.anon-server
+X-Mozilla-News-Host: news://usnews.blocknews.net
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Thunderbird/68.10.0
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+Lines: 29
+X-Complaints-To: abuse@blocknews.net
+Nntp-Posting-Date: Wed, 30 Sep 2020 21:47:44 UTC
+Organization: blocknews - www.blocknews.net
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:311462
+
+Hi Inwtx.
+
+Your new YAMN remailer Swissmix is returning remailer-key &
+remailer-conf requests. And it is currently listed at Cloaked YAMN pinger.
+
+However something is still not working. It does not seem to be returning
+actually ping messages. As a result it is stuck at 0% on the stats pages.
+
+I am looking into this at Cloaked.pw. I checked my Postfix main.cf to
+ensure that I have this in place
+
+recipient_delimiter = +
+
+so that it can understand addresses like
+
+<echolot+ping=1601501701=22942506@mail.inwtx.xyz>
+
+Do you as a remailer need this recipient delimiter in your Postfix
+config too? I think so. (My brain is tired.) I do seem to remember your
+remailer setup guide recommended it for mixmaster remailers.
+
+
+-- 
+SEC3
+
+Contact information and PGP key at <https://sec3.net>
+Keys.pub: I am user sec3.net@https on Keys
+box: ead4b9245a0311ed28f7bd79b6046e83c05587fc0394b4c7e858f2ea475d3919
+YAMN Help <https://sec3.net/yamnhelp/>

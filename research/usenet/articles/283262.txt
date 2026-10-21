@@ -1,0 +1,53 @@
+Message-ID: <slrnnm0b0c.1iv.admin@fleegle.mixmin.net>
+Subject: Re: Configuring Echolot to ping 4096 Remailers Only?
+Date: Tue, 14 Jun 2016 16:08:44 +0000
+From: Zax <admin@mixmin.net>
+References: <7b32bff8cf413b890bda38c2f4783926@anon.holland.remailer.nl>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!news.usenet.farm!..!..!not-for-mail
+Newsgroups: alt.privacy.anon-server
+Organization: Mixmin
+Injection-Date: Tue, 14 Jun 2016 16:08:44 -0000 (UTC)
+Injection-Info: news.mixmin.net; posting-host="731b3d73b83ef37231c6fefb86c1f44773c2789b";
+User-Agent: slrn/pre1.0.3-10 (Linux)
+Lines: 38
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:283262
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+On Tue, 14 Jun 2016 14:14:22 +0100 (BST), Cornelis Tromp wrote in
+Message-Id: <7b32bff8cf413b890bda38c2f4783926@anon.holland.remailer.nl>:
+
+> Can echolot be set up to ping 4096 remailers only?
+
+You can configure it to only ping the remailers you tell it about.  Then
+only tell it about 4096 remailers.
+
+In pingd.conf: -
+reliable_auto_add_min => 100
+
+Manually add remailers using: -
+pingd add remailer@address.foo
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2
+
+iQIcBAEBCAAGBQJXYCwMAAoJEC3jHKG+Pvqnm/EP/1kCc57QtJv4U9EPh3bkWfMG
+lbUw/0Ecby3L8s2g6QS558zoQtPYBYarfxbNFs7DMEcFQfGfSUF6OzMdWTmRwE77
+IWgieyrElL17sCs2XMQNvBnhRHogRwr8YhjXebVaQvvXNQC4B5BqOLSzczL5fiQj
+EGVlvnCSiissUgf/1XYzT989lM6QHfD67VPzFX+fq+SK1iwHR8HUF4LeXSKspTjC
+bkq0VPUlhGSx0D2lE+kWQq+YFD83GFcC14QNANbIvb8T1MxtqG2Fb057uZd+iIH0
+xcTf7nojJ2ryJcmTbr8iBFm/LKpKg3gMVpSWdeZPJbLzO9w9n2WN56CRYWF7u41v
+w2iStWXpDI8LIgIl8EBGKKp0HuXMe2YE8vMNPT9mx6gpw1zkaUYj6dDn3mjbYba6
+KqQooZ9kgbfD3iwgxpDIGO0b1Am2AmfTkuLabdP32pm/tb2hWiL4VS7QIKoYQF7k
+yZTE+SVlSdHcLuBOoAhewfcC5nUdpKayGS5zDhmhiNw9bzwFY7uuLJ8zmtnwzY08
+0ykalpZLYxGRAhdmy0re4WSgcXcdtlnKUQcnTQnDSNod7Y0iwwS8bCRYsOrZB8g8
+yNaZV4td6cJDgfAfFa/0BBhO1MDxY0RZ9z4qnLUH/42x1csog20Yfr5osVNE7IN4
+yDlxFQnA0riWRNZdCFyN
+=7bNK
+-----END PGP SIGNATURE-----
+
+-- 
+pub   1024D/228761E7 2003-06-04 Steven Crook <steve@mixmin.net>
+      Key fingerprint = 1CD9 95E1 E9CE 80D6 C885  B7EB B471 80D5 2287 61E7
+sub  4096R/BE3EFAA7  created: 2014-11-14  expires: 2016-11-13  usage: S

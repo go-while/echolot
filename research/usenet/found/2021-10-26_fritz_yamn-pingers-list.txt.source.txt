@@ -1,0 +1,8 @@
+message-id: <20211026.213816.f17d2c44@remailer.frell.eu.org>
+date: Tue, 26 Oct 2021 21:38:16 +0200
+from: Fritz Wuehler <fritz@spamexpire-202110.rodent.frell.theremailer.net>
+subject: YAMN Pinger - updated
+newsgroups: alt.anonymous.email, alt.privacy.anon-server, alt.privacy.anon-server.stats
+article-file: articles/stats/20211026.213816.f17d2c44@remailer.frell.eu.org.txt
+lines: 15-41
+note: List of YAMN pingers (austria, mixmin, tincture, victor, haph) in allpingers-like format

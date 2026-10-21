@@ -1,0 +1,23 @@
+Message-Id: <c47aacd61445503963ab26d5b85e081f@remailer.privacy.at>:
+
+> It's working now. Only problem now is that there are 3 copies of the 
+> test post in alt.test.test.
+
+You got three copies because the client stored outbound messages in the
+pool and repeatedly tried to send them with each yamn -m.  I've changed
+this now so that the pooled message is deleted even if sending fails.
+This makes more sense client-side.
+
+I've also added a DNS resolver to the latest binary.  By default, the
+client (and server) will try to fetch the MX record for the recipient.
+If it succeeds, this will be used as the relay instead of the
+host configured in SMTPRelay.  If the relay supports TLS, this ensures
+end-to-end forward secrecy.  If the user prefers to force use of their
+configured SMTPRelay, set the following:
+[Mail]
+MXRelay = no
+
+Latest windows binary is at:
+http://www.mixmin.net/yamn.exe
+
+-----BEGIN PGP SIGNATURE-----

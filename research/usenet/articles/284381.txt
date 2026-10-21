@@ -1,0 +1,47 @@
+Message-ID: <slrnns58vr.v5q.admin@fleegle.mixmin.net>
+Subject: Re: Ping Zax
+Date: Sun, 28 Aug 2016 08:42:35 +0000
+From: Zax <admin@mixmin.net>
+References: <066c874d627bcf32b6f4739d1df72403@remailer.paranoici.org>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!not-for-mail
+Newsgroups: alt.privacy.anon-server
+Organization: Mixmin
+User-Agent: slrn/pre1.0.3-12 (Linux)
+Injection-Date: Sun, 28 Aug 2016 08:42:35 -0000 (UTC)
+X-Received-Body-Crc: 3206861813
+X-Received-Bytes: 2244
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:284381
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+On Sat, 27 Aug 2016 19:22:27 +0000 (UTC), Anonymous wrote in
+Message-Id: <066c874d627bcf32b6f4739d1df72403@remailer.paranoici.org>:
+
+> Do you know what setting you have in your pinger that kept anon around
+> longer than all the other 4096 pingers?
+My pingd.conf is almost empty, I've only configured the mandatory
+name/address elements and left everything else at default.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2
+
+iQIcBAEBCAAGBQJXwqP7AAoJEC3jHKG+PvqnIAQP/0bhL/vco2WMYrv+AnxaZh4H
+w/RDG9reMUW+1aXNuRMXrUrkxex1GS8OLhaqrWmNNsUCC6AsamWROKfSntstAlUY
+vXsHM3Seft0wEC7EamxmUp7JT54pYyYS/GsWkpY6D9Lg33FlWvkVm5JyDqb45v8V
+AIFM06o+B3DsNq+eJSTj9eFYxbdEJNU/KhRajWSQtsfWSuEYU6mh85FZDMsgfozG
+Y/t9SdGI0whpspmzM+3yI1HQig9j5fTx7ecMql3DuNwDWVfssoip8NqH0voJyVmD
+yaUz60Mzm59hzcCy7tKkO1iIklXxjWKnKKxV03aUfzz+KQjBjv3bvAAZmCe7Sa5d
+gcc7lFEw6vyqYmHxqhsc3etobEnX/iSTfTqD4m0WVKlA78ZVI5y9b06w3hJSNHex
+vpRoF5IF3QlXAlpMGuGYrn03Ytjc8tgfsiRHYbDZiywHKKHNapoxcjY7Lqn8GXGR
+Eh38nZPm4PWJxIHMUlJ3iNz0Z3DSn4YvyJVKlDdwI9QEocbdvI9jyqOba9BL/UFu
+6sV7ZYWJK1QeJOzKMmT3WoLT5WoLFapKLYc9eybZvKsDIXIGpkzXcpDv5dEsQ+FB
+7Sp9BQF3fN1sOE/AznTnXRMHFw8yyLGS0lvaPs1WkExHM4/T3vxo7gw7KwzLCoNo
+bBEU7xG5hmHylgUqQeA+
+=mjRe
+-----END PGP SIGNATURE-----
+
+-- 
+pub   1024D/228761E7 2003-06-04 Steven Crook <steve@mixmin.net>
+      Key fingerprint = 1CD9 95E1 E9CE 80D6 C885  B7EB B471 80D5 2287 61E7
+sub  4096R/BE3EFAA7  created: 2014-11-14  expires: 2016-11-13  usage: S

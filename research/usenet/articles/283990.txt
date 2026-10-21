@@ -1,0 +1,79 @@
+Message-ID: <no4o4g$mbt$1@solani.org>
+Subject: Re: Attn elvis
+Date: Sat, 6 Aug 2016 09:19:11 -0400
+From: SEC3 <pinger-admin@sec3.net>
+References: <no3rbq$54b$1@solani.org> <slrnnqbdnv.1iv.admin@fleegle.mixmin.net>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!news.usenet.farm!..!..!not-for-mail
+Newsgroups: alt.privacy.anon-server
+Organization: solani.org
+Lines: 56
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+X-Trace: solani.org 1470489552 22909 eJwNy8EBwCAMAsCVTApoxqFG9x+hvf/xUWhPiAIvbwXGbigbSdqFbju5pjDitF+vIKvifwf1AQ+tEHA= (6 Aug 2016 13:19:12 GMT)
+X-Complaints-To: abuse@news.solani.org
+NNTP-Posting-Date: Sat, 6 Aug 2016 13:19:12 +0000 (UTC)
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101
+ Icedove/45.1.0
+In-Reply-To: <slrnnqbdnv.1iv.admin@fleegle.mixmin.net>
+X-NNTP-Posting-Host: eJwFwQERADEIAzBLHYP+Iwc46l/Ckrg8nM8Z9FCohBBMtXJ5qmG4am2gumzJU+2/D8uQkw85VRHd
+X-User-ID: eJwFwQERACAIA8BKDhhqHORY/wj+0xPZO5IZFFV1pjpew4WJ3OaiGw9zmgs+0L0abluGeh8kahD3
+X-Mozilla-News-Host: news://news.solani.org
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:283990
+
+On 08/06/2016 06:07 AM, Zax wrote:
+> On Sat, 6 Aug 2016 01:08:09 -0400, SEC3 wrote in
+> Message-Id: <no3rbq$54b$1@solani.org>:
+> 
+> [snip]
+> 
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+>> AAAAAAAAAAAAAAAAAAAAAAABAAE=
+>> -----End Mix Key-----
+> 
+> Echolot doesn't match the "=" sign on the end of the key block.  It's
+> the Base64 padding character and, in the case of 1024 and 4096 bit keys,
+> there is no padding.
+> 
+> To fix this, Echolot needs a small patch:
+> 
+> --- Conf.pm     2014-10-23 16:51:19.000000000 +0100
+> +++ newConf.pm  2016-08-06 10:59:04.197118471 +0100
+> @@ -285,7 +285,7 @@
+>         my @mix_keys = ($reply =~ /^-----Begin \s Mix \s Key-----\r?\n
+>                                   [0-9a-f]{32}\r?\n
+>                                                           \d+\r?\n
+> -                                                         (?:[a-zA-Z0-9+\/]*\r?\n)+
+> +                                                         (?:[a-zA-Z0-9+\/]*=?\r?\n)+
+>                                                           -----End \s Mix \s Key-----$/xmg );
+>         for (@mix_confs) {
+>                 my ($nick, $address, $keyid, $version, $caps, $created, $expires) = /^
+> 
+
+Thanks. After applying the patch and then trying again to add new
+remailer test3072@loadmx.net to my pinger Echolot says this:
+
+==
+
+Aug 06 09:09:09 [INFO] Got SIGHUP. scheduling readcommands.
+Use of uninitialized value $keyid in hash element at
+/home/echolot/echolot/Echolot/Conf.pm line 325, <GEN100> line 8.
+
+Aug 06 09:10:00 [INFO] Could not parse a remailer-key reply.
+
+Aug 06 09:10:00 [INFO] Mixmaster key header without key in reply from
+test3072@loadmx.net.
+
+==
+
+
+ SEC3 Pinger Admin
+ Lisbeth Remop
+ Contact information at <http://sec3.net>

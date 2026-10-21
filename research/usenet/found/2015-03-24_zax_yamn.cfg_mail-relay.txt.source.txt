@@ -1,0 +1,8 @@
+message-id: <slrnmh32qj.h7m.admin@snorky.mixmin.net>
+date: Tue, 24 Mar 2015 16:05:39 +0000
+from: Zax <admin@mixmin.net>
+subject: Re: Yamn Update
+newsgroups: alt.privacy.anon-server
+article-file: articles/apas2014/273101.txt
+lines: 26-52
+note: yamn.cfg [Mail] relay options, boolean syntax

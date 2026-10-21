@@ -1,0 +1,55 @@
+Message-ID: <slrntpudqd.e3v.admin@fleegle.mixmin.net>
+Subject: Re: Ping Zax
+Date: Sun, 18 Dec 2022 15:52:45 +0000
+From: Zax <admin@mixmin.net>
+References: <rJv8L.1611441$G_96.503180@fx13.ams1> <iE1lL.9342$Tcw8.1316@fx10.iad>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!not-for-mail
+Newsgroups: alt.privacy.anon-server
+Organization: Mixmin
+Injection-Date: Sun, 18 Dec 2022 15:52:45 -0000 (UTC)
+Injection-Info: news.mixmin.net; posting-host="c4af4a3027e8317d29ea238d8aa6bb2f616aa3fc"; logging-data="1277670"; mail-complaints-to="abuse@mixmin.net"
+User-Agent: slrn/pre1.0.4-2 (Linux)
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:320614
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+On Sat, 10 Dec 2022 10:32:30 -0500, SEC3 wrote in
+Message-Id: <iE1lL.9342$Tcw8.1316@fx10.iad>:
+
+> yamn@beaufusil.com
+> yamn@eocto.net
+
+Hi SEC3,
+
+Both of these are now added.
+
+> Add this line to pingd.conf:
+>
+>        'reliable_auto_add_min'     => 3,
+
+Added and set to 2.  I don't see any security implications with adding
+remailers to a pinger.  They either function correctly and return pings
+or they don't.
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEJHudPu4ysYQcZBcigyyPTc2QQmMFAmOfN0wACgkQgyyPTc2Q
+QmPvTA/+L3cHU/HAhLho0axYhQgwf7sXTUndvgpkKIHDu+uANPqSKvbIUgnXXnvq
+qmV+osVWn5BH6sUkfrT0rlrYWC2FI5nLQHQ0nQ8jZ2awyO0qyAc4U2F4LbBovGVe
+zIKF74FVo8HxUDzV8tGWVRslcUV1uBdH9EUvbi15dVPkh1DVbBdZUGczhiE+xC8L
+3oJL1xrdF+dMgZrH+AugWVJ0YGmPDG3FO/wGtiaJf9pSZXoSeAwVR8eZR8V49nja
+SvLq4tJHYemWm3IHGG1ieohUYV0DkGg2J4sBDqDGOrYiir0Q0PH+t1O752UYECgQ
+8f/DLLw5XNgtj4ctVRtTtmVdq5iibXLPrFyWpjykwx2YRuo+ggKoTzIvoGqHYPuN
+2jgZ5yZU4+vq+v4OwQOHhIyNsjl/nehkvjsdW+9LeV/m+HwDbdIw08G4+KaO2LY9
+nBV5lJCvptd1aVw03TXiSUtuD2xIaQ7Gmh0Wq5p4NEbbrT+ng+T+YIwxx6bDrvTy
+d25Nah8vu+reOQBoKnbgl1YGT353snbJrmeSUHwfXt7wy/fNmDtAnjntUNym/KKZ
+AF2EMx+jZ4tD20xPuayuGBL++Z8MLjCU86sWd9Lim5T48gfyvlVawQZdLNYiIAFE
+/gNB09MIfGbveiRCboB2sgBLJqYoauiJTGNwNbhz6tSio98nx4M=
+=w+XU
+-----END PGP SIGNATURE-----
+
+-- 
+pub   1024D/228761E7 2003-06-04 Steven Crook <steve@mixmin.net>
+      Key fingerprint = 1CD9 95E1 E9CE 80D6 C885  B7EB B471 80D5 2287 61E7
+ssb  rsa4096/832C8F4DCD904263 created: 2019-05-04 expires: 2024-05-02 usage: S

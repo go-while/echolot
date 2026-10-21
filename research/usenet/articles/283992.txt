@@ -1,0 +1,48 @@
+Message-ID: <no4p8v$n1n$1@solani.org>
+Subject: Re: Attn elvis
+Date: Sat, 6 Aug 2016 09:38:39 -0400
+From: SEC3 <pinger-admin@sec3.net>
+References: <no3rbq$54b$1@solani.org> <slrnnqbdnv.1iv.admin@fleegle.mixmin.net> <no4o4g$mbt$1@solani.org>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!news.usenet.farm!..!..!not-for-mail
+Newsgroups: alt.privacy.anon-server
+Organization: solani.org
+Lines: 26
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+X-Trace: solani.org 1470490719 23607 eJwNysEBwCAIA8CVREiAcYo1+4/Q3vvgNJ4MggFBb3VOzSZtq0PH3VY+CccZ6B+6SW3zvlKtDxXIER4= (6 Aug 2016 13:38:39 GMT)
+X-Complaints-To: abuse@news.solani.org
+NNTP-Posting-Date: Sat, 6 Aug 2016 13:38:39 +0000 (UTC)
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101
+ Icedove/45.1.0
+X-User-ID: eJwFwYEBwCAIA7CXcJQK59jN/n/Ckkouvhssolxu9ueDx3GnlihIWfIEjmZvnVCOrxtNBX4m3hFr
+In-Reply-To: <no4o4g$mbt$1@solani.org>
+X-NNTP-Posting-Host: eJwNyMEBwAAEBLCVKA7joOw/QptnTMAYVxjUzg7u+bA2Oouqb8p7378lVoNYdIbyonrnBvoBIz8RyA==
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:283992
+
+On 08/06/2016 09:19 AM, SEC3 wrote:
+
+> 
+> Thanks. After applying the patch and then trying again to add new
+> remailer test3072@loadmx.net to my pinger Echolot says this:
+> 
+> ==
+> 
+> Aug 06 09:09:09 [INFO] Got SIGHUP. scheduling readcommands.
+> Use of uninitialized value $keyid in hash element at
+> /home/echolot/echolot/Echolot/Conf.pm line 325, <GEN100> line 8.
+> 
+> Aug 06 09:10:00 [INFO] Could not parse a remailer-key reply.
+> 
+> Aug 06 09:10:00 [INFO] Mixmaster key header without key in reply from
+> test3072@loadmx.net.
+
+Please disregard this. I made a mistake and applied the patch incorrectly.
+
+I will try it again and report back.
+
+
+
+ SEC3 Pinger Admin
+ Lisbeth Remop
+ Contact information at <http://sec3.net>

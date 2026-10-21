@@ -1,0 +1,5 @@
+source: https://web.archive.org/web/20260710101825/https://www.sec3.net/yamnhelp/install_yamn_pinger.html
+retrieved: 2026-10-21 via Wayback Machine (web, not Usenet)
+author: SEC3 (sec3.net YAMN Help)
+note: Later tutorial version (captures 2024-02..2026-07): Echolot4YAMN bundle https://www.sec3.net/yamnhelp/pinger/echolot4yamn.zip (NOT in Wayback) with bundled yamn v0.2.6 binary, pingd.conf, yamn.yml (smtp_relay, pipe), user 'pinger', procmail -a $EXTENSION
+Untrusted data; not executed.

@@ -1,0 +1,17 @@
+>>> P.S.  I've just realized that my key is expired, I've extended
+>>> the expiration date, in the next days a new key will be generated.
+>> Ah, that might explain the problem.  The Middleman remailers without
+>> whitelisting cannot create randhops to your expired key.
+>
+>   How do you whiteprivilegelist a pinger?
+
+Add entries in the remailer's dest.alw file.  Here are some examples:
+
+/echolot.*\@/
+/pinger.*\@/
+/fourohninesix.*@bergman\.delphy\.org$/
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2
+
+iQIcBAEBCAAGBQJVCgueAAoJEC3jHKG+PvqnozMP/2fz6FSSX08bleE0xXu9em3v

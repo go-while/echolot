@@ -1,0 +1,11 @@
+
+It's probably worth pointing out that random chain selection will, by
+default, report "Insufficient remailers".  This is because Echolot is
+currently reporting a latency of 0:01 and the default MINLAT is 0:02.
+To overcome this, add the following to yamn.cfg:-
+
+[Stats]
+Minlat = 1
+
+Alternatively, wait a while and the reported latency will go up.  I've
+reconfigured the servers with a three minute sleep between pool reads.

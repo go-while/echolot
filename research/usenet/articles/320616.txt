@@ -1,0 +1,46 @@
+Message-ID: <7rHnL.14132$Ldj8.9388@fx47.iad>
+Subject: Re: Ping Zax
+Date: Sun, 18 Dec 2022 11:43:47 -0500
+From: SEC3 <admin@sec3.net>
+References: <rJv8L.1611441$G_96.503180@fx13.ams1> <iE1lL.9342$Tcw8.1316@fx10.iad> <slrntpudqd.e3v.admin@fleegle.mixmin.net>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!not-for-mail
+Mime-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Thunderbird/102.6.0
+Newsgroups: alt.privacy.anon-server
+Content-Language: en-US
+In-Reply-To: <slrntpudqd.e3v.admin@fleegle.mixmin.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+Lines: 28
+X-Complaints-To: abuse@blocknews.net
+Nntp-Posting-Date: Sun, 18 Dec 2022 16:43:47 UTC
+Organization: blocknews - www.blocknews.net
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:320616
+
+On 2022-12-18 10:52, Zax wrote:
+> On Sat, 10 Dec 2022 10:32:30 -0500, SEC3 wrote in
+> Message-Id: <iE1lL.9342$Tcw8.1316@fx10.iad>:
+> 
+>> yamn@beaufusil.com
+>> yamn@eocto.net
+> 
+> Hi SEC3,
+> 
+> Both of these are now added.
+> 
+>> Add this line to pingd.conf:
+> 
+>>         'reliable_auto_add_min'     => 3,
+> 
+> Added and set to 2.  I don't see any security implications with adding
+> remailers to a pinger.  They either function correctly and return pings
+> or they don't.
+>
+
+Thank you for doing these updates to your Yamn pinger.
+And thanks for all the services you run!
+
+-- 
+SEC3
+
+YAMN Help Tutorial - https://www.sec3.net/yamnhelp/

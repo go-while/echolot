@@ -1,0 +1,56 @@
+Message-ID: <ClPIE.35985$G34.27437@fx13.iad>
+Subject: Re: Cloaked Yamn Pinger is broken
+Date: Sun, 2 Jun 2019 08:32:33 -0400
+From: SEC3 <noreply@sec3.net>
+References: <5LlIE.23193$k34.14621@fx25.iad> <05ad2708a45a8f99441ed57253b6bbf2@remailer.privacy.at> <slrnqf7417.u39.admin@fleegle.mixmin.net>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!news.usenet.farm!..!..!not-for-mail
+Newsgroups: alt.privacy.anon-server
+Openpgp: preference=signencrypt
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.0
+MIME-Version: 1.0
+In-Reply-To: <slrnqf7417.u39.admin@fleegle.mixmin.net>
+Content-Type: text/plain; charset=utf-8
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+Lines: 34
+X-Complaints-To: abuse@blocknews.net
+NNTP-Posting-Date: Sun, 02 Jun 2019 12:32:34 UTC
+Organization: blocknews - www.blocknews.net
+X-Received-Bytes: 2275
+X-Received-Body-CRC: 1435894114
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:305620
+
+On 6/2/19 5:00 AM, Zax wrote:
+> On Sun,  2 Jun 2019 02:38:19 +0200 (CEST), Anonymous Remailer (austria) wrote in
+> Message-Id: <05ad2708a45a8f99441ed57253b6bbf2@remailer.privacy.at>:
+> 
+>>  You need to try and rouse Zax or frell. Obviously they have made some other mods to the echolot mods you got or they would be having the same problem. The correctly modified echolot needs to be zipped and put out somewhere so others can run pingers.
+
+
+> Here's the patch I applied to my Echolot pinger code to support Yamn.
+> 
+> --- /home/echolot/echolot/Echolot/Conf.pm	2014-10-23 16:51:19.000000000 +0100
+<SNIP>
+
+
+Hi Zax,
+
+Thanks for sharing that code. I already have that patch in place.
+
+Still my pinger does not perform well at all. I suspect the problem is
+not having the proper configuration for the Yamn client that Echolot
+employs. Unlike Echolot+Mixmaster Echolot+Yamn seems to require
+up-to-date stats and keys for the Yamn client. Currently I am fetching
+those from Frell Yamn Pinger.
+
+
+Would you share your Yamn client config please?
+
+
+-- 
+SEC3
+
+Contact information at <https://sec3.net>
+I am also on Keybase <https://keybase.io/sec3>
+monero:88aSY6Nzm7i2ug943YG6Sm2S3t8CkcXZogid4kkAR8Rm3tG64WvtexHYv94Do11J6XB8Xibf23mKHiKuYd1MEi3zBLyXyK6

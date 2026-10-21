@@ -1,0 +1,231 @@
+
+
+  YAMN Help
+
+        [index.html] YAMN HELP
+
+Install Echolot For YAMN Pinger on a VPS
+
+This tutorial assumes a working VPS server, with a working MTA (we recommend Postfix) and a Web server installed. It has been successfully tested on Debian 9, 10 and 11. These instructions borrow heavily from the [https://raw.githubusercontent.com/crooks/echolot/master/README] original installation instructions for Peter Palfrader's Echolot program.
+
+[#one] PART 1: Prepare your server for Echolot For YAMN pinger service
+
+[#two] PART 2: Set up Echolot4YAMN
+
+[#three] PART 3: Add all known YAMN remailer addresses to your Echolot4YAMN pinger
+
+PART 1: Prepare your server for Echolot For YAMN pinger service
+
+As root or as a sudo user create a new user named 'pinger':
+
+root@vps:~$ adduser pinger
+
+Install a few more things needed to run your new YAMN Pinger service:
+
+root@vps:~$ apt install procmail
+
+root@vps:~$ apt install perl
+
+root@vps:~$ apt install libgnupg-interface-perl libhtml-template-perl
+
+While we are root we should make some necessary changes to our MTA. Assuming Postfix. Ensure these 2 lines are present in your /etc/postfix/main.cf file:
+
+# Echolot needs to understand user-defined mailboxes so that email addresses
+
+# like pinger+ping=1583008800=4c84ad53@yourdomain.com will reach your pinger's mailbox.
+
+recipient_delimiter = +
+
+# Your pinger relies on Procmail
+
+mailbox_command = /usr/bin/procmail -a "$EXTENSION"
+
+Save and close main.cf and then reload Postfix:
+
+root@vps:~$ systemctl reload postfix
+
+NOTE: If you are using an MTA other than Postfix consult your MTA's documentation to determine how to enable user-defined mailboxes.
+
+Logout of root. Login as new user 'pinger'.
+
+Install the Go language, for exclusive use by user 'pinger', by following the tutorial [pinger/install_golang.html] HERE.
+
+Congratulations! END OF PART 1.
+
+PART 2: Set up your Echolot for YAMN Pinger
+
+Continue as regular user 'pinger'.
+
+Download Echolot4YAMN program, a slightly altered version of Peter Palfrader's original Echolot program:
+
+pinger@vps:~$ mkdir ~/tmp && cd ~/tmp
+
+pinger@vps:~$ wget https://www.sec3.net/yamnhelp/pinger/echolot4yamn.zip
+
+pinger@vps:~$ unzip echolot4yamn.zip
+
+Move the extracted files into a new folder ~/echolot:
+
+pinger@vps:~$ mv echolot4yamn /home/pinger/echolot
+
+Now let's move to our new echolot folder:
+
+pinger@vps:~$ cd ~/echolot
+
+First, let's make executable the main Echolot program file which, strangely, is not named echolot. Rather it is named pingd.
+
+pinger@vps:~/echolot$ chmod +x pingd
+
+The provided Echolot configuration file, pingd.conf, needs to be adjusted for your pinger. Edit/change these lines to match your pinger's identity:
+
+'sitename'
+
+'my_domain'
+
+'operator_address'
+
+Save and close pingd.conf.
+
+Incoming email will be delivered to /home/pinger/echolot/mail. We need to create that mailbox:
+
+pinger@vps:~/echolot$ mkdir /home/pinger/echolot/mail
+
+Make sure the directory is owned by user 'pinger':
+
+pinger@vps:~/echolot$ chown pinger:pinger /home/pinger/echolot/mail
+
+Echolot4Yamn depends on the presence of a YAMN binary (v0.2.6, compiled by SEC3 from [https://github.com/crooks/yamn] Zax's source code, and included in the ~/echolot folder where it should remain. Don't move it.) Let's do some more personalization to suite your pinger's unique identity. Open file /home/pinger/echolot/yamn.yml for editing. Edit/change these lines to match your pinger's identity:
+
+smtp_relay: foo.yourdomain.com Set this to your mail host.
+
+pipe: "/usr/sbin/sendmail -f pinger@yourdomain.com -t" Change yourdomain.com to your domain.
+
+Save the file yamn.yml and exit.
+
+With procmail already installed on your system, download this [pinger/dot-procmailrc] .procmailrc file, place it in the root of user pinger's home folder along side your .bashrc and .profile files, and rename it to its correct filename .procmailrc.
+
+pinger@vps:~/yamn$ cd ~/
+
+pinger@vps:~$ wget https://www.sec3.net/yamnhelp/pinger/dot-procmailrc
+
+pinger@vps:~$ mv dot-procmailrc .procmailrc
+
+Procmail needs a log file. Let's create that:
+
+pinger@vps:~$ mkdir ~/procmail && cd ~/procmail
+
+pinger@vps:~/procmail$ touch procmail.log
+
+Time to clean up some clutter we left behind from the above setup process:
+
+pinger@vps~/procmail:~$ rm ~/echolot4yamn.zip
+
+pinger@vps~/procmail:~$ rm -rf ~/tmp
+
+Logout as user 'pinger' and, once more, login as root or sudo user.
+
+We need to create a Systemd service to automatically start your YAMN pinger after a VPS crash or a reboot. As root follow this short HOWTO on how to create and enable this service: [pinger/create-pinger-service.txt] create-pinger-service.txt, and then return to this tutorial.
+
+Congratulations! END OF PART 2.
+
+PART 3: Add all known YAMN remailers to your Echolot For YAMN pinger
+
+As user 'pinger' open two terminal windows.
+
+In the first terminal window change into the directory where your pinger resides.
+
+pinger@vps:~$ cd ~/echolot
+
+And now type these commands:
+
+pinger@vps:~/echolot$ ./pingd --detach start
+
+pinger@vps:~/echolot$ tail -f pingd.log
+
+In the second terminal window, change into the directory where your pinger resides.
+
+pinger@vps:~$ cd ~/echolot
+
+And now add remailer addresses one by one:
+
+pinger@vps:~/echolot$ ./pingd add yamn@yamn.paranoici.org
+
+pinger@vps:~/echolot$ ./pingd add yamn@virebent.art
+
+pinger@vps:~/echolot$ ./pingd add yamn@mixmin.net
+
+At present there are [https://www.mixmin.net/yamn/mlist2.txt] 10 of them.
+
+Next type this command:
+
+pinger@vps:~/echolot$ ./pingd getkeyconf
+
+Now wait approx. 15-30 minutes for Echolot to start receiving results back from the remailers that you requested keys from.
+
+Monitor the first terminal in which you started pingd. You should see the contents of Echolot's log file in real time as remailer addresses are returning to you their keys and config files.
+
+After about 1 hour go to the second terminal window and execute these 3 commands to update the remailer keys and configs in your Yamn pinger. In the future this will be done for you automatically every 24 hours but for the initial setup we will want to do it manually:
+
+pinger@vps:~/echolot$ ./pingd buildkeys
+
+pinger@vps:~/echolot$ ./pingd buildstats
+
+pinger@vps:~/echolot$ ./pingd buildthesaurus
+
+Now navigate to Echolot's /results folder:
+
+pinger@vps:~/echolot$ cd /home/pinger/echolot/results
+
+Have a look at the files in there.
+
+pinger@vps:~/echolot/results$ cat mlist.txt
+
+pinger@vps:~/echolot/results$ cat pubring.mix
+
+Those files should list a few remailers. Eventually, in a few hours, all remailers should be listed therein.
+
+While we are in the  /results folder let's use this opportunity to create a symbolic link:
+
+pinger@vps:~/echolot/results$ ln -sf echolot.html index.html
+
+This will create a simpler URL address for your pinger's Web site. https://yourdomain.com/yamn instead of https://yourdomain.com/yamn/echolot.html
+
+We are now going to stop, momentarily, the Echolot program (pingd) that has been running in the first terminal window.
+
+pinger@vps:~/echolot$ ./pingd --detach stop
+
+and close and logout of both terminal windows.
+
+Now log back in as root or sudo user.
+
+As root or sudo user REBOOT your VPS now.
+
+root@vps:~$ shutdown -r now
+
+The reason for the reboot is we want to start up your new YAMN pinger via the Systemd service instead of the way we were starting it before - on the command line - which is impractical for longterm usage. Rebooting now can provide you an opportunity to test whether your systemd startup service actually works.
+
+If you really do not want to, or cannot, reboot your VPS server at this time that's okay. Just do this command instead:
+
+root@vps:~$ systemctl start echolot
+
+After your VPS server has rebooted, and as root or as sudo user, we want to execute this command to make the files in your /results folder available for public viewing at your new Yamn Pinger Webpage:
+
+root@vps:~$ ln -s /home/pinger/echolot/results /var/www/yourdomain.com/public_html/yamn
+
+The above command is what I used at my own YAMN remailer. That second part will be quite different for you. It will depend on where your Webserver's root directory is. My Webserver's root directory is /var/www/cloaked.pw/public_html
+
+NOTE: For the symbolic link to be created the /yamn folder MUST NOT EXIST already in your Web pages. If it does exist delete it and try to create the symlink again.
+
+If everything worked as expected you should now see your YAMN Stats Webpage at https://yourdomain.com/yamn/
+
+Congratulations! END OF PART 3.
+
+DONE!
+
+ [index.html] Back Home
+
+          SEC3.NET  | 2026
+
+          Powered by the Gridism template created by [https://github.com/cobyism/] Coby Chapple.
+
+

@@ -1,0 +1,66 @@
+Message-ID: <slrnnm117l.1iv.admin@fleegle.mixmin.net>
+Subject: Re: Configuring Echolot to ping 4096 Remailers Only?
+Date: Tue, 14 Jun 2016 22:28:05 +0000
+From: Zax <admin@mixmin.net>
+References: <slrnnm0b0c.1iv.admin@fleegle.mixmin.net> <d366f35ba40a48424f9ae4887c9e3527@anemone.mooo.com>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!news.usenet.farm!..!..!not-for-mail
+Newsgroups: alt.privacy.anon-server
+Organization: Mixmin
+Injection-Date: Tue, 14 Jun 2016 22:28:05 -0000 (UTC)
+Injection-Info: news.mixmin.net; posting-host="731b3d73b83ef37231c6fefb86c1f44773c2789b";
+User-Agent: slrn/pre1.0.3-10 (Linux)
+Lines: 51
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:283267
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+On Tue, 14 Jun 2016 19:24:03 +0200 (CEST), Jeremy Bentham wrote in
+Message-Id: <d366f35ba40a48424f9ae4887c9e3527@anemone.mooo.com>:
+
+>> -----BEGIN PGP SIGNED MESSAGE-----
+>> Hash: SHA256
+>> 
+>> On Tue, 14 Jun 2016 14:14:22 +0100 (BST), Cornelis Tromp wrote in
+>> Message-Id: <7b32bff8cf413b890bda38c2f4783926@anon.holland.remailer.nl>:
+>> 
+>> 
+>>> Can echolot be set up to ping 4096 remailers only?
+>> 
+>> You can configure it to only ping the remailers you tell it about.  Then
+>> only tell it about 4096 remailers.
+>> 
+>> In pingd.conf: -
+>> reliable_auto_add_min => 100
+>> 
+>> Manually add remailers using: -
+>> pingd add remailer@address.foo
+>
+>   Doesn't echolot find remailer through other remailers?
+
+Yes, but the reliable_auto_add_min setting tells it that 100 remailers
+must list a new remailer before it's auto-added.  In other words, no
+remailers will be automatically added.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2
+
+iQIcBAEBCAAGBQJXYIT1AAoJEC3jHKG+PvqndsUP/iHq3b6D91/6u8YphJ+hwpW9
+ubZ/4wlqPX8DIg+zSOpFIlVbppwQKwj4M080qhM/PE3jV2b8tMd8uX7PQy2FNKLo
+utTqBKAin+fvTTgyLKdaCNjS77Zh3tc7Da9+hcUFYJ7Bdh0Hf+E/Oqmentw4OcWI
+Ua99x39xA50wzPZUnIPnssPD8w/IkSsciG++BnqZDtzpmk96O/9ArWUUWMtN2psP
+YMAwlFoi+Widb3zwehU9C8o0TqUCjmSQqojyihd/W5F9Y41WH88/1Aiyc2tWsRWM
+r4w+GRCUeZjp0TykR7A3KFw/q/INn2w99cmkxXfZLjQfSdezJ+ErXz5GjXOzyvFV
+3Lia4+NohxDt5xUs6JvlBmiYyXJBb9pBWOSH6XHNXZUQXP003lvUqZ2edNG2hsGd
+zdZnB+JQXGTaGHwdG7whZnU/mM1m+CCBJGG84/b71UkBmryithTjCxR7R2PVOrAp
+V/dxIsAiJ8ABQn7eparl6Ql8DwMyN2TUwMbmQcWsRp2nx7Tkjr5JEZuC3IA9dzKQ
+R16VB9XoMRKROBGFN7ZGeIaEpZMkVUSYtferFG9cpXiAFUiWa1BT7K7pZHKYbtm8
+oK7bp0mQ6bnhPAmJapzMjG2YKaU5p/qvLVh6NHUg2E7VKnzVT+/PPSSQ4p0JaBSb
+2/+h9n9eCMbx5dMcw44s
+=aMbP
+-----END PGP SIGNATURE-----
+
+-- 
+pub   1024D/228761E7 2003-06-04 Steven Crook <steve@mixmin.net>
+      Key fingerprint = 1CD9 95E1 E9CE 80D6 C885  B7EB B471 80D5 2287 61E7
+sub  4096R/BE3EFAA7  created: 2014-11-14  expires: 2016-11-13  usage: S

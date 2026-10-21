@@ -1,0 +1,36 @@
+Q. How do you start the YAMN pinger automatically at boot time?
+
+A. Become root, or sudo user.
+
+Add a file called /etc/systemd/system/echolot.service and insert the below contents:
+
+===========
+# /etc/systemd/system/echolot.service
+
+[Unit]
+Description=Echolot YAMN Pinger Service
+After=mail-transport-agent.target
+
+[Service]
+Type=simple
+User=pinger
+Group=pinger
+ExecStart=/home/pinger/echolot/pingd start
+ExecStop=/home/pinger/echolot/pingd stop
+
+[Install]
+WantedBy=multi-user.target
+
+============
+
+Save and close the file. Then do:
+
+chmod 664 /etc/systemd/system/echolot.service
+
+Then do:
+
+systemctl enable echolot
+
+For now that is all. We have enabled but have not actually started the service. 'Not just yet.
+
+Close this Web page and return to the tutorial.

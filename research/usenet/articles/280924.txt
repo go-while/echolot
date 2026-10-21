@@ -1,0 +1,49 @@
+Message-ID: <e1f44daf23ede5907671ac36392b3006@hoi-polloi.org>
+Subject: Re: Pinger problem
+Date: Tue, 8 Mar 2016 20:03:26 +0100
+From: Anonymous <anonymous@hoi-polloi.org>
+References: <slrnndtnhn.e31.admin@fleegle.mixmin.net>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!news.usenet.farm!..!..!not-for-mail
+Authentication-Results: fleegle.mixmin.net; dkim=pass
+ reason="1024-bit key; unprotected key"
+ header.d=hoi-polloi.org header.i=@hoi-polloi.org header.b=YRT5E9J0;
+ dkim-adsp=pass; dkim-atps=neutral
+Comments: This message did not originate from the Sender address above.
+ It was remailed automatically by anonymizing remailer software.
+ Please report problems or inappropriate use to the
+ remailer administrator at <abuse@hoi-polloi.org>.
+X-Greylist: Sender passed SPF test, not delayed by milter-greylist-4.3.9
+Newsgroups: alt.privacy.anon-server
+Injection-Info: mail2news.mixmin.net; mail-complaints-to=abuse@mixmin.net
+Lines: 29
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:280924
+
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA256
+> 
+> On Mon,  7 Mar 2016 21:08:06 -0500 (EST), Jack Ryan wrote in
+> Message-Id: <50bfebcc99928b4fbfcbbf2ec07f4aed@remailer.cpunk.us>:
+> 
+> 
+>>   Does anyone know what might be causing mixmaster to not be executable?
+>>
+>> ./pingd --detach start
+>> tail -f pingd.log
+>>
+> 
+> You probably want to split out Mixmaster the client/remailer from
+> Mixmaster required to send Echolot pings.
+> 
+> Have 2 user accounts: mix and echolot.  Install Mixmaster to:
+> /home/mix/Mix
+> /home/echolot/Mix
+> 
+> Put Echolot in:
+> /home/echolot/echolot
+> 
+> Configure echolot to use its own copy of Mixmaster:
+> 'mixmaster'        => '/home/echolot/Mix/mixmaster',
+
+  That is the way that some others are doing it and suggested.  When I tried to install the merkinmuffley mixmaster, it insisted on being installed in /mix/Mix.  I tried to install mixmaster in /home/echolot/ (I actually used /home/pinger/), but it got compile errors.
+
+  What I finally did was install echolot into /mix along with /mix/Mix/mixmaster that was already there.  Echolot is running correctly now.  /mix/Mix/mixmaster is no longer running as a remailer.

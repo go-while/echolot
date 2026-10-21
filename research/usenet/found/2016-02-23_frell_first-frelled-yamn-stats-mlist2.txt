@@ -1,0 +1,32 @@
+Frelled Yamn Stats - 2016-02-23
+http://echolot.theremailer.net/yamn/mlist2.html
+
+Stats-Version: 2.0
+Generated: Tue 23 Feb 2016 10:20:00 GMT
+Mixmaster    Latent-Hist   Latent  Uptime-Hist   Uptime  Options
+------------------------------------------------------------------------
+holland      ?????????111    :32   ?????????+++  100.0%                 
+yamn         ?????????211    :48   ?????????+++  100.0%                 
+yamn2        ?????????111    :27   ?????????++9   99.6%                 
+yamn3        ?????????111    :27   ?????????++9   99.1%                 
+frell        ?????????223   1:18   ?????????++9   97.9%                 
+yamn4        ?????????222   1:18   ?????????987   86.3%  D              
+pollux       ?????????111    :41   ?????????777   73.4%  D              
+
+Broken type-I remailer chains:
+
+
+Broken type-II remailer chains:
+
+
+
+
+Remailer-Capabilities:
+
+$remailer{"frell"} = "<nyam@remailer.frell.eu.org> v2";
+$remailer{"holland"} = "<yamn@holland.remailer.nl> v2";
+$remailer{"pollux"} = "<yamn@iria.hopto.me> middle";
+$remailer{"yamn"} = "<yamn@mixmin.net> v2";
+$remailer{"yamn2"} = "<yamn2@mixmin.net> v2";
+$remailer{"yamn3"} = "<yamn3@mixmin.net> v2";
+$remailer{"yamn4"} = "<yamn4@mixmin.net> middle v2";

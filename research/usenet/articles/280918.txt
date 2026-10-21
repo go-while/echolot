@@ -1,0 +1,76 @@
+Message-ID: <nbn216$d00$1@dont-email.me>
+Subject: Re: Pinger problem
+Date: Tue, 8 Mar 2016 12:30:18 -0500
+From: SEC3 <sec3-pinger@sec3.invalid>
+References: <50bfebcc99928b4fbfcbbf2ec07f4aed@remailer.cpunk.us> <slrnndtnhn.e31.admin@fleegle.mixmin.net>
+Path: archive.usenet.blueworldhosting.com!illumos!news.pugleaf.net!.TX!i2pn2.pugleaf.net!archive.newsdeef.eu!apf1.newsdeef.eu!news.usenet.farm!..!..!not-for-mail
+Newsgroups: alt.privacy.anon-server
+Organization: SEC3
+Lines: 56
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+Injection-Date: Tue, 8 Mar 2016 17:27:02 -0000 (UTC)
+Injection-Info: mx02.eternal-september.org; posting-host="102632073841b77028a221263c2b5ab2";
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101
+ Icedove/38.6.0
+In-Reply-To: <slrnndtnhn.e31.admin@fleegle.mixmin.net>
+Cancel-Lock: sha1:WeMQs1l5d1duB3/wwvGplZMF62c=
+Xref: archive.usenet.blueworldhosting.com alt.privacy.anon-server:280918
+
+On 03/08/2016 09:14 AM, Zax wrote:
+> On Mon,  7 Mar 2016 21:08:06 -0500 (EST), Jack Ryan wrote in
+> Message-Id: <50bfebcc99928b4fbfcbbf2ec07f4aed@remailer.cpunk.us>:
+> 
+>>   Does anyone know what might be causing mixmaster to not be executable?
+> 
+>> ./pingd --detach start
+>> tail -f pingd.log
+> 
+>> Mar 07 16:07:21 [DEBUG] Detaching.
+>> Mar 07 16:07:21 [INFO] Starting up.
+>> Mar 07 16:07:21 [DEBUG] zZzZZzz.
+>> Mar 07 16:09:23 [INFO] Got SIGTERM. scheduling exit.
+>> Mar 07 16:09:23 [DEBUG] Running exit (was scheduled for 1457388563 seconds ago).
+>> Mar 07 16:09:23 [INFO] Shutdown complete.
+>> Mar 07 16:13:07 [WARN] mixmaster binary /home/mix/Mix/mixmaster does not exist or is not executeable
+>> Mar 07 16:13:07 [DEBUG] Detaching.
+>> Mar 07 16:13:07 [INFO] Starting up.
+>> Mar 07 16:13:07 [DEBUG] zZzZZzz.
+> 
+> You probably want to split out Mixmaster the client/remailer from
+> Mixmaster required to send Echolot pings.
+> 
+> Have 2 user accounts: mix and echolot.  Install Mixmaster to:
+> /home/mix/Mix
+> /home/echolot/Mix
+> 
+> Put Echolot in:
+> /home/echolot/echolot
+> 
+> Configure echolot to use its own copy of Mixmaster:
+> 'mixmaster'        => '/home/echolot/Mix/mixmaster',
+
+Zax's advice is good if you are running both a remailer and a pinger
+from the same box. But from what I've understood from our private
+correspondence that is not what you intend to do. You are setting up a
+pinger at allpingers.net and you are removing fuyant remailer from that box.
+
+In that case your setup can be much simpler:
+
+Have 1 user account echolot. Install Mixmaster (client only) to:
+/home/echolot/Mix
+
+Put Echolot in:
+/home/echolot/echolot
+
+Configure echolot to use its own copy of Mixmaster:
+'mixmaster'        => '/home/echolot/Mix/mixmaster',
+
+
+Also, remember that changes to pingd.conf won't take effect until after
+a restart:
+
+sudo /etc/init.d/pingctl restart
+
+ SEC3

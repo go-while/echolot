@@ -1,0 +1,8 @@
+message-id: <slrnmjmugr.m9.admin@snorky.mixmin.net>
+date: Sat, 25 Apr 2015 11:27:23 +0000
+from: Zax <admin@mixmin.net>
+subject: Re: Basic Yamn Setup Questions
+newsgroups: alt.privacy.anon-server
+article-file: articles/apas2014/273668.txt
+lines: 36-52
+note: --dummy / --nodummy flags
