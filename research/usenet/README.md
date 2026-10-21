@@ -96,15 +96,18 @@ the Python standard library (`python3 -I`).
 
 ## Full downloads (not in git)
 
-The complete fetched sets are too big for git. They are kept on the user's
-test host mbox-mo1.pugleaf.net in `/srv/usenet-archive/`:
+The complete fetched sets are too big for git. They can be downloaded from
+https://pugleaf.net/research/echolot-pinger-usenet-archive/usenet-archive/ (a
+copy is also kept on the test host mbox-mo1.pugleaf.net in
+`/srv/usenet-archive/`):
 
 | File | Size | SHA-256 |
 |---|---|---|
 | `apas-2016-2026-articles-278981-338767.tar.xz` | 23 MB | `fd032b6cfad432d0c0e8227c5c299266885464c2c8783bbd956fe234fe822bd8` |
 | `tbsearch-2026-10-21.tar.xz` (subject search: 34,556 files) | 13 MB | `de41bcee063db6d48e50c03141a25f672c353110a57fd6b304791398fc5c6483` |
 
-They can also be fetched again by article number or Message-ID from
+Check them with `sha256sum -c SHA256SUMS` after downloading. They can also be
+fetched again by article number or Message-ID from
 `archive.usenet.blueworldhosting.com` (full archive) or `news-ams.pugleaf.net`
 (the last year only).
 
