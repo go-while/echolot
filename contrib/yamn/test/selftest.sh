@@ -5,7 +5,7 @@
 #
 # Usage (as a normal user; pingd refuses to run as root):
 #     YAMN=/path/to/yamn contrib/yamn/test/selftest.sh
-# Needs perl with GnuPG::Interface and HTML::Template, gpg and python3.
+# Needs perl with GnuPG::Interface and HTML::Template, and gpg.
 # Set KEEP=1 to keep the work directory for inspection.
 set -eu
 
@@ -69,6 +69,10 @@ done
 mkdir -p "$work/mixhome"
 
 export YAMN="$yamn"
+# pingd finds pingd.conf and keeps its state in ECHOLOT_HOME if that is set
+# (as in the Docker image), so point it at the test copy.
+export ECHOLOT_HOME="$work/echolot"
+unset ECHOLOT_CONF
 export FAKESENDMAIL_LOG="$work/mail.log"
 export FAKESENDMAIL_ROUTES="remailer.test=$work/rem/Maildir pinger.test=$work/echolot/mail"
 sendmail="$here/fakesendmail"

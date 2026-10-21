@@ -31,6 +31,9 @@ Everything else is unchanged Echolot. `pingd(1)` and `pingd.conf(5)` in
 This replaces the "echolot4yamn" bundle and the YAMN Help pages that SEC3
 used to publish on sec3.net (now offline).
 
+To run it in Docker or Podman instead, either with Postfix inside or with
+the host's mail server, see [docker/README.md](docker/README.md).
+
 ## How the pieces fit together
 
 ```
