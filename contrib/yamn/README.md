@@ -22,6 +22,14 @@ current Debian system.
 - **`contrib/yamn/yamn-ping`:** Echolot runs a "mixmaster" program to send a
   ping. This wrapper runs yamn instead, with the right directory and options:
   one copy, no dummy messages, and the From line kept.
+- **`contrib/yamn/templates/`:** yamn versions of the `echolot.html`,
+  `mlist.html` and `mlist2.html` pages, with the empty Type I (Cypherpunk)
+  parts commented out.
+  - SEC3's YAMN `echolot.html` is lost. These are rebuilt from the pages
+    of Frell's yamn pinger (http://echolot.theremailer.net/yamn/), and
+    render the same.
+  - The example `pingd.conf` selects them; the stock templates stay as
+    they are.
 - **Example configuration** for Echolot, the yamn client, mail delivery and
   systemd, a monitoring check, and a self-test that needs no mail server.
 
@@ -156,6 +164,11 @@ The example also changes some Echolot defaults:
 | `buildkeys` | 8 h | 1 h | `pubring.mix` is rebuilt soon after a new key arrives |
 | `addresses_default_ttl` | 5 | 20 | a remailer is still disabled after about 5 days without replies |
 | `pidfile` | `pingd.pid` | `/run/echolot/pingd.pid` | see "Stale pid file" below |
+| `templates` | `templates/*.html` | `contrib/yamn/templates/` for the index, `mlist` and `mlist2` | no empty Cypherpunk sections |
+
+**Upgrading an existing pinger:** copy the `templates` block from
+`contrib/yamn/pingd.conf` into your `pingd.conf` and restart pingd. The
+pages change at the next `buildstats`.
 
 ## 6. Start pingd with systemd
 
@@ -186,7 +199,7 @@ done
 ```
 
 This list is from October 2026; compare it with the other pingers' stats
-(below).
+(see [PINGERS.md](PINGERS.md)).
 - **Wait for replies:** they usually take a few minutes. Watch
   `tail -f pingd.log` for lines such as
   `Setting mix key for yamn@mixmin.net: …`.
@@ -221,7 +234,8 @@ Serve only `~/echolot/results/`, read-only. Never serve the home directory,
 
 Clients then use `https://<your-host>/yamn/pubring.mix` and `…/mlist2.txt`.
 
-- **With current yamn:** add your pinger to `urls.pingers` next to the others;
+- **With current yamn:** add your pinger to `urls.pingers` next to the
+  others ([PINGERS.md](PINGERS.md) lists the known ones);
   `key_quorum` makes clients use only keys that several pingers agree on.
 - **Announce it:** announce new pingers on alt.privacy.anon-server, as
   usual.
@@ -245,7 +259,8 @@ network is needed. It checks the whole cycle:
 1. key and conf requests;
 2. `pubring.mix`;
 3. a ping through yamn and back;
-4. `mlist2.txt`.
+4. `mlist2.txt`;
+5. the yamn HTML pages.
 
 Run it as a normal user, before installing or after changing anything:
 ```
@@ -265,6 +280,16 @@ It ends with `PASS`, or shows where it failed together with the logs.
 - **Middle remailers:** a remailer with the `middle` capability can't deliver
   the ping itself. It forwards it through an exit of its own choice, so its
   stats include a second hop.
+  - Mixmaster middlemen could deliver pings directly if the pinger's
+    address was in their `dest.alw`, e.g. `/pinger.*\@/` (Zax, 2015-03-18,
+    `<slrnmgk2su.h7m.admin@snorky.mixmin.net>`). yamn has no such list.
+- **Key changes cost a few days of uptime:** when a remailer replaces its
+  key, Echolot pings the old and the new key. Once the remailer has deleted
+  the old key, the pings to it are lost, and they count against the
+  remailer. Its uptime can drop to about 50% until Echolot drops the old
+  key with its pings, 5 days after it last saw it (`expire_keys`). Zax saw
+  this with yamn and Mixmaster 4096-bit keys (2015-04-15,
+  `<slrnmis8at.m9.admin@snorky.mixmin.net>`).
 - **`remailer-stats`:** yamn doesn't answer it; Echolot logs nothing about
   that, and it's harmless.
 - **Commands:** `./pingd add`, `getkeyconf` etc. only queue a command and
@@ -299,3 +324,5 @@ It ends with `PASS`, or shows where it failed together with the logs.
 - yamn and the yamn patch for Echolot: Steve Crook (Zax); his copy of Echolot
   is at https://github.com/crooks/echolot.
 - The original yamn pinger tutorials: SEC3 (YAMN Help, sec3.net).
+- The yamn pages in `templates/`: rebuilt from the pages of Frell's yamn
+  pinger.

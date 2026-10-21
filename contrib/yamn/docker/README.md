@@ -37,7 +37,8 @@ remailer and a fake sendmail run the whole cycle without network access:
 1. key and conf requests;
 2. `pubring.mix`;
 3. a ping and its return;
-4. `mlist2.txt`.
+4. `mlist2.txt`;
+5. the yamn HTML pages.
 
 It ends with `PASS`.
 
@@ -46,6 +47,11 @@ It ends with `PASS`.
 On its first start the container writes `pingd.conf` and
 `mixhome/yamn.yml` into the volume from these variables. Later starts keep
 those files, so edit them or delete them to change the settings.
+
+A `pingd.conf` written by an older image uses Echolot's stock HTML pages,
+with empty Cypherpunk sections. To get the yamn pages, add the
+`templates` block from `entrypoint.sh` to it, or delete it so the next
+start writes a new one.
 
 | Variable | Default | Meaning |
 |---|---|---|
