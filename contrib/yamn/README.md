@@ -22,6 +22,14 @@ current Debian system.
 - **`contrib/yamn/yamn-ping`:** Echolot runs a "mixmaster" program to send a
   ping. This wrapper runs yamn instead, with the right directory and options:
   one copy, no dummy messages, and the From line kept.
+- **`contrib/yamn/templates/`:** yamn versions of the `echolot.html`,
+  `mlist.html` and `mlist2.html` pages, with the empty Type I (Cypherpunk)
+  parts commented out.
+  - SEC3's YAMN `echolot.html` is lost. These are rebuilt from the pages
+    of Frell's yamn pinger (http://echolot.theremailer.net/yamn/), and
+    render the same.
+  - The example `pingd.conf` selects them; the stock templates stay as
+    they are.
 - **Example configuration** for Echolot, the yamn client, mail delivery and
   systemd, a monitoring check, and a self-test that needs no mail server.
 
@@ -156,6 +164,11 @@ The example also changes some Echolot defaults:
 | `buildkeys` | 8 h | 1 h | `pubring.mix` is rebuilt soon after a new key arrives |
 | `addresses_default_ttl` | 5 | 20 | a remailer is still disabled after about 5 days without replies |
 | `pidfile` | `pingd.pid` | `/run/echolot/pingd.pid` | see "Stale pid file" below |
+| `templates` | `templates/*.html` | `contrib/yamn/templates/` for the index, `mlist` and `mlist2` | no empty Cypherpunk sections |
+
+**Upgrading an existing pinger:** copy the `templates` block from
+`contrib/yamn/pingd.conf` into your `pingd.conf` and restart pingd. The
+pages change at the next `buildstats`.
 
 ## 6. Start pingd with systemd
 
@@ -245,7 +258,8 @@ network is needed. It checks the whole cycle:
 1. key and conf requests;
 2. `pubring.mix`;
 3. a ping through yamn and back;
-4. `mlist2.txt`.
+4. `mlist2.txt`;
+5. the yamn HTML pages.
 
 Run it as a normal user, before installing or after changing anything:
 ```

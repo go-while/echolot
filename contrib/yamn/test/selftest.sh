@@ -1,7 +1,7 @@
 #!/bin/sh
 # selftest.sh: run this Echolot tree against a local yamn remailer, without
 # an MTA, and check the whole cycle: key and conf requests, pubring.mix, a
-# ping through yamn, and mlist2.txt.
+# ping through yamn, mlist2.txt, and the yamn HTML pages.
 #
 # Usage (as a normal user; pingd refuses to run as root):
 #     YAMN=/path/to/yamn contrib/yamn/test/selftest.sh
@@ -111,6 +111,22 @@ cat >"$work/echolot/pingd.conf" <<EOT
 	'do_pings'            => { 'mix' => 1 },
 	'which_chainpings'    => { 'mix' => [ qw{mix} ] },
 	'processmail'         => 5,
+	'templates' => { 'default' => {
+		'indexfile'          => 'contrib/yamn/templates/echolot.html',
+		'mlist'              => 'contrib/yamn/templates/mlist.html',
+		'mlist2'             => 'contrib/yamn/templates/mlist2.html',
+		'thesaurusindexfile' => 'templates/thesaurusindex.html',
+		'fromlinesindexfile' => 'templates/fromlinesindex.html',
+		'rlist'              => 'templates/rlist.html',
+		'rlist-rsa'          => 'templates/rlist-rsa.html',
+		'rlist-dsa'          => 'templates/rlist-dsa.html',
+		'rlist-clear'        => 'templates/rlist-clear.html',
+		'rlist2'             => 'templates/rlist2.html',
+		'rlist2-rsa'         => 'templates/rlist2-rsa.html',
+		'rlist2-dsa'         => 'templates/rlist2-dsa.html',
+		'rlist2-clear'       => 'templates/rlist2-clear.html',
+		'clist'              => 'templates/clist.html',
+	} },
 	'pidfile'             => '$work/pingd.pid',
 	'loglevel'            => 'debug',
 };
@@ -147,4 +163,7 @@ wait_for "ping returned" 60 grep -q "registering pingdone .* for rem@remailer.te
 
 ./pingd buildstats
 wait_for "mlist2.txt built" 60 grep -q "^testrem " results/mlist2.txt
+wait_for "echolot.html built from the yamn template" 60 \
+	grep -q -e "-->Type II (Mixmaster) remailers" results/echolot.html
+grep -q "testrem" results/mlist2.html || fail "mlist2.html lists no remailer"
 echo "PASS"
