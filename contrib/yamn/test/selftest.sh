@@ -24,6 +24,8 @@ cleanup() {
 		kill "$(cut -d' ' -f1 "$work/pingd.pid")" 2>/dev/null || true
 		sleep 2
 	fi
+	# Echolot's gpg calls start a gpg-agent for the test's GnuPG home.
+	gpgconf --homedir "$work/echolot/gnupghome" --kill gpg-agent 2>/dev/null || true
 	if [ "${KEEP:-}" = 1 ]; then
 		echo "work directory kept: $work"
 	else
